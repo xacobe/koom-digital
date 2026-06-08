@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koom Digital — Agence web Drupal à Ouagadougou, Burkina Faso</title>
+  <meta name="description" content="Koom Digital crée des sites web, boutiques en ligne et portails institutionnels à Ouagadougou. Spécialistes Drupal, Mobile Money, multilingue (FR, EN, Mooré, Fulfuldé). Présence locale, standards internationaux.">
+  <link rel="canonical" href="https://www.koom.digital/">
+
+  <!-- Open Graph — partage WhatsApp / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Koom Digital">
+  <meta property="og:title" content="Koom Digital — Ton business, visible au monde">
+  <meta property="og:description" content="Sites web, boutiques et portails à impact, conçus à Ouagadougou. Drupal certifié, Mobile Money, multilingue FR · EN · Mooré · Fulfuldé.">
+  <meta property="og:url" content="https://www.koom.digital/">
+  <meta property="og:image" content="https://www.koom.digital/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Polices : préconnexion + chargement non bloquant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+
+  <!-- CSS critique au-dessus de la ligne de flottaison (inline pour le First Contentful Paint) -->
+  <style>
+    :root{--koom-navy:#042C53;--koom-deep:#0C447C;--koom-blue:#185FA5;--koom-mid:#378ADD;--koom-light:#85B7EB;--koom-pale:#B5D4F4;--koom-wash:#E6F1FB;--koom-white:#F5F9FF;--koom-text:#0D1B2A;--koom-muted:#4A6785;--koom-border:#C8DDF2;--font-display:'Syne',Georgia,serif;--font-body:'DM Sans',-apple-system,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--font-body);color:var(--koom-text);background:var(--koom-white);line-height:1.65}
+    h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.15;margin:0 0 1rem}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(245,249,255,.85);border-bottom:1px solid var(--koom-border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.85rem;max-width:1200px;margin-inline:auto;padding-inline:1.5rem}
+    .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.25rem;color:var(--koom-navy)}
+    .hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:88vh}
+    .hero-half{display:flex;align-items:center;padding:4rem 2.5rem}
+    .hero-entreprises{background:linear-gradient(160deg,var(--koom-navy),var(--koom-deep));color:var(--koom-wash)}
+    .hero-ongs{background:var(--koom-wash);color:var(--koom-navy)}
+    @media(max-width:920px){.hero-split{grid-template-columns:1fr;min-height:0}.hero-half{padding:3rem 1.5rem}}
+  </style>
+
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+  <!-- Schema.org — LocalBusiness pour le SEO local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Koom Digital",
+    "description": "Agence de développement web et spécialiste Drupal basée à Ouagadougou, Burkina Faso. Sites vitrines, e-commerce, Mobile Money et portails institutionnels multilingues.",
+    "image": "https://www.koom.digital/images/og-cover.jpg",
+    "url": "https://www.koom.digital/",
+    "telephone": "+226-XX-XX-XX-XX",
+    "priceRange": "120000 FCFA - 3500000 FCFA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ouagadougou",
+      "addressCountry": "BF"
+    },
+    "areaServed": ["Burkina Faso", "Région Sahel"],
+    "knowsLanguage": ["fr", "en", "mos", "ff"],
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <!-- ============================== NAVIGATION ============================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#042C53"/>
+          <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#185FA5"/>
+          <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+        <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu de navigation">
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="primary-nav">
+        <a href="index.html" aria-current="page">Accueil</a>
+        <a href="entreprises.html">Entreprises</a>
+        <a href="ongs-institutions.html">ONGs &amp; Institutions</a>
+        <a href="index.html#projets">Projets</a>
+        <a href="index.html#histoire">À propos</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="contact.html">Devis gratuit</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Choisir la langue">
+          <button type="button" aria-pressed="true" lang="fr">FR</button>
+          <button type="button" aria-pressed="false" lang="en">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO SPLIT ============================== -->
+    <section class="hero-split" aria-label="Choisissez votre parcours">
+      <div class="hero-half hero-entreprises">
+        <div class="hero-half-inner" data-reveal>
+          <span class="hero-tag-label">Pour les entreprises</span>
+          <h1>Ton business, visible en ligne</h1>
+          <p>Sites web, boutiques et Mobile Money pour les entreprises de Ouagadougou. Livraison en 3 jours.</p>
+          <ul class="tag-list">
+            <li class="tag">WhatsApp intégré</li>
+            <li class="tag">Dès 120 000 FCFA</li>
+            <li class="tag">Livraison 3 jours</li>
+          </ul>
+          <a class="btn btn-light" href="entreprises.html">Voir les packs →</a>
+        </div>
+      </div>
+
+      <div class="hero-half hero-ongs">
+        <div class="hero-half-inner" data-reveal>
+          <span class="hero-tag-label">Pour les ONGs &amp; institutions</span>
+          <h1>Solutions web à impact local</h1>
+          <p>Portails multilingues, Drupal certifié, accessibilité WCAG. Présence locale, normes internationales.</p>
+          <ul class="tag-list">
+            <li class="tag">Mooré</li>
+            <li class="tag">Fulfuldé</li>
+            <li class="tag">FR</li>
+            <li class="tag">EN</li>
+            <li class="tag">Drupal</li>
+            <li class="tag">WCAG 2.1</li>
+          </ul>
+          <a class="btn btn-primary" href="ongs-institutions.html">Demander un devis →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PROPOSITION DE VALEUR ============================== -->
+    <section class="section" aria-labelledby="valeur-titre">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Pourquoi Koom Digital</span>
+          <h2 id="valeur-titre">Une agence enracinée à Ouagadougou, des standards internationaux</h2>
+          <p class="lede" style="margin-inline:auto">Ce que nous offrons et qu'aucune agence basée en Europe ne peut égaler sur le terrain burkinabè.</p>
+        </div>
+
+        <div class="grid grid--6" data-reveal-group>
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <h3>Présence locale réelle</h3>
+            <p>Réunions en personne à Ouagadougou. On connaît le terrain, les langues, les réalités du marché.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.8 6 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-6-3.8-9S9.5 5.7 12 3Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <h3>4 langues, 1 agence</h3>
+            <p>Français, English, Mooré, Fulfuldé. Aucune agence européenne ne peut offrir ça.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 18h.01M8 18v-3M13 18v-6M18 18V8M21 5l-9 9-4-4-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Optimisé basse connexion</h3>
+            <p>Sites légers, offline-first, rapides même en 3G. On sait comment l'internet fonctionne ici.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3M9.5 6h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Mobile Money intégré</h3>
+            <p>Orange Money, Moov Money. Vos clients paient comme ils ont l'habitude.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 7.2 6 11.4A6 6 0 0 1 6 14.4C6 10.2 12 3 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Spécialistes Drupal</h3>
+            <p>Le CMS de l'UNICEF, de la Commission Européenne et de 100+ gouvernements. Pour les projets qui doivent durer.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Même fuseau horaire</h3>
+            <p>Disponibles en heures, pas en jours. Pas de décalage avec une agence en Europe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PACKS ENTREPRISES ============================== -->
+    <section class="section section--wash" id="packs-entreprises" aria-labelledby="packs-titre">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Pour les entreprises</span>
+          <h2 id="packs-titre">Des packs clairs, des prix visibles</h2>
+          <p class="lede">Choisissez la formule adaptée à votre étape — du premier site vitrine à la plateforme avancée avec paiement Mobile Money.</p>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group>
+          <article class="pack-card">
+            <p class="pack-name">Pack Start</p>
+            <p class="pack-price">120 000 – 180 000 <small>FCFA</small></p>
+            <p>Idéal pour démarrer votre présence en ligne rapidement et à moindre coût.</p>
+            <ul class="pack-list">
+              <li>Landing page, 1 à 3 pages</li>
+              <li>Plantilla personnalisée</li>
+              <li>WhatsApp intégré</li>
+              <li>Formulaire de contact</li>
+              <li>Hébergement la première année inclus</li>
+            </ul>
+            <a class="btn btn-outline-dark" href="entreprises.html#start">Découvrir le pack Start</a>
+          </article>
+
+          <article class="pack-card pack-card--featured">
+            <p class="pack-name">Pack Business</p>
+            <p class="pack-price">350 000 – 550 000 <small>FCFA</small></p>
+            <p>Le choix le plus populaire — un site corporatif complet, prêt à convertir.</p>
+            <ul class="pack-list">
+              <li>Site corporatif, 5 à 10 pages</li>
+              <li>CMS (Drupal ou WordPress)</li>
+              <li>Design personnalisé</li>
+              <li>SEO de base &amp; optimisation mobile</li>
+              <li>Intégration réseaux sociaux</li>
+            </ul>
+            <a class="btn btn-primary" href="entreprises.html#business">Découvrir le pack Business</a>
+          </article>
+
+          <article class="pack-card">
+            <p class="pack-name">Pack Pro</p>
+            <p class="pack-price">750 000 – 1 200 000 <small>FCFA</small></p>
+            <p>Une solution avancée et sur mesure, pensée pour la croissance.</p>
+            <ul class="pack-list">
+              <li>Site avancé ou semi sur-mesure</li>
+              <li>Multilingue</li>
+              <li>Performance optimisée</li>
+              <li>Intégrations (paiements, APIs)</li>
+              <li>UX travaillée</li>
+            </ul>
+            <a class="btn btn-outline-dark" href="entreprises.html#pro">Découvrir le pack Pro</a>
+          </article>
+        </div>
+
+        <p class="text-center" style="margin-top:var(--space-lg)">
+          <a class="btn-ghost" href="entreprises.html">Voir aussi nos solutions e-commerce &amp; Mobile Money</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== FRANJA OSCURA — STAT ============================== -->
+    <section class="stat-band">
+      <div class="container" data-reveal>
+        <span class="eyebrow" style="color:var(--koom-light)">Le CMS de référence mondiale</span>
+        <p class="lead">Le même CMS utilisé par l'UNICEF, la Commission Européenne et plus de 100 gouvernements dans le monde — développé localement, pour vos réalités.</p>
+        <div class="stat-logos">
+          <span>UNICEF</span>
+          <span>Commission Européenne</span>
+          <span>100+ gouvernements</span>
+          <span>Drupal certifié</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SOLUTIONS ONGs ============================== -->
+    <section class="section section--dark" id="solutions-ongs" aria-labelledby="ongs-titre">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Pour les ONGs &amp; institutions</span>
+          <h2 id="ongs-titre">Des portails à la hauteur de votre mission</h2>
+          <p>Multilinguisme, accessibilité, sécurité — la crédibilité que vos bailleurs et vos bénéficiaires attendent.</p>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group>
+          <article class="inst-card">
+            <p class="pack-name">Présence ONG</p>
+            <p class="pack-price">400 000 – 600 000 <small>FCFA</small></p>
+            <p>Un site institutionnel solide pour présenter votre mission et vos projets.</p>
+            <ul class="pack-list">
+              <li>Site institutionnel FR + EN</li>
+              <li>Section projets</li>
+              <li>Module de dons</li>
+              <li>Accessibilité WCAG de base</li>
+            </ul>
+            <a class="btn btn-outline" href="ongs-institutions.html#ong">En savoir plus</a>
+          </article>
+
+          <article class="inst-card">
+            <p class="pack-name">Portail Projet / Campagne</p>
+            <p class="pack-price">700 000 – 1 400 000 <small>FCFA</small></p>
+            <p>Un microsite dédié à votre campagne, pensé pour toucher toutes les communautés.</p>
+            <ul class="pack-list">
+              <li>Microsite de campagne</li>
+              <li>Multilingue, langues locales incluses</li>
+              <li>Formulaires complexes</li>
+              <li>Intégration de données</li>
+            </ul>
+            <a class="btn btn-outline" href="ongs-institutions.html#portail">En savoir plus</a>
+          </article>
+
+          <article class="inst-card">
+            <p class="pack-name">Portail Institutionnel</p>
+            <p class="pack-price">1 500 000 – 3 500 000 <small>FCFA</small></p>
+            <p>Pour les appels d'offres formels et les plateformes multi-rôles à grande échelle.</p>
+            <ul class="pack-list">
+              <li>Conforme aux appels d'offres formels</li>
+              <li>Drupal multi-rôle</li>
+              <li>Sécurité avancée</li>
+              <li>Mooré / Fulfuldé · hébergement dédié</li>
+            </ul>
+            <a class="btn btn-outline" href="ongs-institutions.html#institutionnel">En savoir plus</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MAINTENANCE ============================== -->
+    <section class="section" id="maintenance" aria-labelledby="maintenance-titre">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Tranquillité d'esprit</span>
+          <h2 id="maintenance-titre">Maintenance mensuelle, sans surprise</h2>
+          <p class="lede">Votre site reste à jour, sauvegardé et performant — nous nous occupons de tout, vous vous concentrez sur votre activité.</p>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group>
+          <article class="plan-card">
+            <h3>Basique</h3>
+            <p class="plan-price">20 000 FCFA <small style="font-family:var(--font-body);font-weight:400;font-size:.85rem;color:var(--koom-muted)">/ mois</small></p>
+            <ul class="pack-list">
+              <li>Mises à jour</li>
+              <li>Sauvegardes</li>
+              <li>Hébergement</li>
+            </ul>
+          </article>
+
+          <article class="plan-card" style="border-color:var(--koom-blue);box-shadow:var(--shadow-card)">
+            <h3>Standard</h3>
+            <p class="plan-price">25 000 – 50 000 FCFA <small style="font-family:var(--font-body);font-weight:400;font-size:.85rem;color:var(--koom-muted)">/ mois</small></p>
+            <ul class="pack-list">
+              <li>Tout le plan Basique</li>
+              <li>Support technique inclus</li>
+            </ul>
+          </article>
+
+          <article class="plan-card">
+            <h3>Premium</h3>
+            <p class="plan-price">75 000+ FCFA <small style="font-family:var(--font-body);font-weight:400;font-size:.85rem;color:var(--koom-muted)">/ mois</small></p>
+            <ul class="pack-list">
+              <li>Tout le plan Standard</li>
+              <li>Améliorations continues</li>
+              <li>SLA dédié</li>
+            </ul>
+          </article>
+        </div>
+        <p class="text-center" style="margin-top:var(--space-lg)">
+          <a class="btn-ghost" href="ongs-institutions.html#maintenance-ong">Plan dédié ONGs &amp; institutions : 60 000 – 150 000 FCFA / mois, avec SLA et rapports mensuels</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== PORTFOLIO ============================== -->
+    <section class="section section--wash" id="projets" aria-labelledby="projets-titre">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Nos réalisations</span>
+          <h2 id="projets-titre">Des projets, des résultats concrets</h2>
+          <p class="lede">Un aperçu de notre approche — exemples représentatifs de nos types de projets pour les deux audiences que nous servons.</p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filtrer les projets par type">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">Tous les projets</button>
+          <button class="filter-btn" type="button" data-filter="entreprise" aria-pressed="false">Entreprises</button>
+          <button class="filter-btn" type="button" data-filter="institution" aria-pressed="false">ONGs &amp; institutions</button>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group>
+          <article class="project-card" data-project-type="entreprise">
+            <div class="project-thumb" aria-hidden="true">Restaurant Le Baobab</div>
+            <div class="project-body">
+              <h3>Restaurant Le Baobab</h3>
+              <p>Un site vitrine et un menu en ligne pour un restaurant de Ouaga 2000 — réservations via WhatsApp, hausse des commandes à emporter.</p>
+              <div class="project-tags">
+                <span class="tag">Pack Business</span>
+                <span class="tag">WhatsApp</span>
+                <span class="tag">SEO local</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-type="entreprise">
+            <div class="project-thumb" aria-hidden="true">Clinique Yamwaya</div>
+            <div class="project-body">
+              <h3>Clinique Yamwaya</h3>
+              <p>Prise de rendez-vous simplifiée et présentation des services pour une clinique privée — site rapide, lisible même en 3G.</p>
+              <div class="project-tags">
+                <span class="tag">Pack Pro</span>
+                <span class="tag">Basse connexion</span>
+                <span class="tag">Mobile-first</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-type="entreprise">
+            <div class="project-thumb" aria-hidden="true">Boutique Wend-Songda</div>
+            <div class="project-body">
+              <h3>Boutique Wend-Songda</h3>
+              <p>Catalogue en ligne avec paiement Orange Money et Moov Money — première boutique e-commerce du quartier à proposer le Mobile Money.</p>
+              <div class="project-tags">
+                <span class="tag">E-commerce Start</span>
+                <span class="tag">Mobile Money</span>
+                <span class="tag">Drupal Commerce</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-type="institution">
+            <div class="project-thumb" aria-hidden="true">ONG Eau Pour Tous</div>
+            <div class="project-body">
+              <h3>ONG Eau Pour Tous</h3>
+              <p>Portail institutionnel bilingue FR/EN avec section projets et module de dons, conforme aux exigences de transparence des bailleurs.</p>
+              <div class="project-tags">
+                <span class="tag">Présence ONG</span>
+                <span class="tag">Multilingue</span>
+                <span class="tag">WCAG</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-type="institution">
+            <div class="project-thumb" aria-hidden="true">Programme Éducation Sahel</div>
+            <div class="project-body">
+              <h3>Programme Éducation Sahel</h3>
+              <p>Microsite de campagne disponible en français, anglais, mooré et fulfuldé — formulaires d'inscription complexes et tableau de bord de suivi.</p>
+              <div class="project-tags">
+                <span class="tag">Portail Projet</span>
+                <span class="tag">Mooré · Fulfuldé</span>
+                <span class="tag">Drupal</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-type="institution">
+            <div class="project-thumb" aria-hidden="true">Agence régionale de développement</div>
+            <div class="project-body">
+              <h3>Agence régionale de développement</h3>
+              <p>Portail institutionnel multi-rôle pour appel d'offres formel — sécurité avancée, hébergement dédié et conformité documentaire complète.</p>
+              <div class="project-tags">
+                <span class="tag">Portail Institutionnel</span>
+                <span class="tag">Drupal multi-rôle</span>
+                <span class="tag">Sécurité avancée</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TÉMOIGNAGES ============================== -->
+    <section class="section" aria-labelledby="temoignages-titre">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Ils nous font confiance</span>
+          <h2 id="temoignages-titre">Ce que disent nos clients</h2>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group>
+          <article class="testimonial">
+            <blockquote>« En trois jours, notre restaurant avait un site et les commandes WhatsApp ont doublé. Koom a compris exactement ce dont on avait besoin. »</blockquote>
+            <div class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">AC</span>
+              <div>
+                <p class="author-name">Aminata Compaoré</p>
+                <p class="author-role">Restaurant Le Baobab, Ouagadougou</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <blockquote>« Enfin une agence qui comprend nos réalités de connexion. Le site charge vite, même avec une 3G capricieuse, et nos patients trouvent l'information facilement. »</blockquote>
+            <div class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">IO</span>
+              <div>
+                <p class="author-name">Dr Issa Ouédraogo</p>
+                <p class="author-role">Clinique Yamwaya, Ouagadougou</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <blockquote>« Le portail multilingue en mooré et en fulfuldé a changé la donne pour notre programme — nos bénéficiaires se sentent enfin représentés. Un vrai partenaire local. »</blockquote>
+            <div class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">FZ</span>
+              <div>
+                <p class="author-name">Fatou Zongo</p>
+                <p class="author-role">ONG Eau Pour Tous</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HISTOIRE DE MARQUE ============================== -->
+    <section class="section section--dark" id="histoire" aria-labelledby="histoire-titre">
+      <div class="container">
+        <div class="story">
+          <div data-reveal>
+            <span class="eyebrow">Notre histoire</span>
+            <h2 id="histoire-titre">Pourquoi Koom ?</h2>
+            <p>En mooré, <strong style="color:var(--koom-white)">koom</strong> signifie l'eau — ce qui nourrit, ce qui donne vie, ce qui connecte les communautés. C'est aussi le symbole de Drupal, le CMS sur lequel nous bâtissons nos projets les plus ambitieux.</p>
+            <p>Coïncidence ? Peut-être. Mais pour nous, c'est une cohérence : une agence enracinée dans sa terre, construite avec les meilleurs outils du monde, au service de la croissance digitale du Burkina Faso et de toute la région Sahel.</p>
+            <a class="btn btn-outline" href="index.html#projets">Découvrir nos projets</a>
+          </div>
+          <div class="story-visual" data-reveal aria-hidden="true">
+            <svg viewBox="0 0 200 240" role="presentation">
+              <path d="M100 16C100 16 36 116 36 168C36 208 64 232 100 232C136 232 164 208 164 168C164 116 100 16 100 16Z" fill="#378ADD"/>
+              <path d="M100 56C100 56 64 122 64 158C64 186 80 206 100 206" fill="none" stroke="#B5D4F4" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA FINAL ============================== -->
+    <section class="section" aria-labelledby="cta-titre">
+      <div class="container">
+        <div class="cta-final" data-reveal>
+          <div>
+            <span class="eyebrow" style="color:var(--koom-light)">Prêt à démarrer ?</span>
+            <h2 id="cta-titre">Commençons votre projet</h2>
+            <p>Décrivez votre besoin en quelques mots — nous revenons vers vous sous 24h, par WhatsApp ou par email, dans le même fuseau horaire que vous.</p>
+            <p style="color:var(--koom-pale);font-size:.9rem">Vous préférez discuter directement ? <a href="https://wa.me/22600000000" style="color:var(--koom-white);font-weight:600;text-decoration:underline">Écrivez-nous sur WhatsApp →</a></p>
+          </div>
+
+          <form class="form-grid" data-contact-form novalidate>
+            <p class="form-status" role="alert" aria-live="polite"></p>
+
+            <div class="field field-honeypot" aria-hidden="true">
+              <label for="societe_web">Ne pas remplir ce champ</label>
+              <input type="text" id="societe_web" name="societe_web" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="cta-nom">Nom complet</label>
+              <input type="text" id="cta-nom" name="nom" required autocomplete="name">
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="cta-contact">Email ou WhatsApp</label>
+                <input type="text" id="cta-contact" name="contact" required autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="cta-type">Vous êtes…</label>
+                <select id="cta-type" name="type" required>
+                  <option value="">Sélectionnez</option>
+                  <option value="entreprise">Entreprise</option>
+                  <option value="ong">ONG</option>
+                  <option value="institution">Institution</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cta-message">Votre projet en quelques mots</label>
+              <textarea id="cta-message" name="message" rows="3" required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Envoyer ma demande →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#0C447C"/>
+              <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#378ADD"/>
+              <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+            <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
+          </a>
+          <p>Digital roots, global reach. L'agence web de référence à Ouagadougou — présence locale, standards internationaux.</p>
+        </div>
+
+        <div>
+          <h4>Entreprises</h4>
+          <ul>
+            <li><a href="entreprises.html#start">Pack Start</a></li>
+            <li><a href="entreprises.html#business">Pack Business</a></li>
+            <li><a href="entreprises.html#pro">Pack Pro</a></li>
+            <li><a href="entreprises.html#ecommerce">E-commerce &amp; Mobile Money</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>ONGs &amp; institutions</h4>
+          <ul>
+            <li><a href="ongs-institutions.html#ong">Présence ONG</a></li>
+            <li><a href="ongs-institutions.html#portail">Portail Projet / Campagne</a></li>
+            <li><a href="ongs-institutions.html#institutionnel">Portail Institutionnel</a></li>
+            <li><a href="index.html#maintenance">Maintenance &amp; SLA</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="index.html#histoire">Pourquoi Koom ?</a></li>
+            <li><a href="index.html#projets">Projets</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/22600000000">WhatsApp Business</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Koom Digital · Ouagadougou, Burkina Faso · <a href="mailto:bonjour@koom.digital">bonjour@koom.digital</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Koom+Digital+Ouagadougou">Voir sur Google Maps</a></p>
+        <p>© <span data-year>2026</span> Koom Digital. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/22600000000" aria-label="Discuter avec Koom Digital sur WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.23.6 4.4 1.74 6.31L4 29l7.84-1.7a12 12 0 0 0 4.2.76c6.64 0 12.04-5.4 12.04-12.04C28.08 8.4 22.68 3 16.04 3Zm0 21.9c-1.4 0-2.78-.37-4-.99l-.29-.16-4.65 1 1.02-4.53-.18-.3a9.86 9.86 0 0 1-1.5-5.28c0-5.46 4.45-9.9 9.9-9.9 5.27 0 9.6 4.34 9.6 9.9 0 5.47-4.43 9.9-9.9 9.9Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

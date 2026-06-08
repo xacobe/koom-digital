@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Koom Digital">
+  <rect width="64" height="64" rx="14" fill="#0C447C"/>
+  <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#378ADD"/>
+  <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
+</svg>
