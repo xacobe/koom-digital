@@ -409,17 +409,23 @@ select:focus-visible {
   font-weight: 600;
 }
 
-.lang-toggle button {
-  border: none;
-  background: transparent;
+.lang-toggle a {
+  display: inline-block;
   padding: 0.4rem 0.7rem;
-  cursor: pointer;
   color: var(--koom-muted);
   transition: background var(--transition-base), color var(--transition-base);
 }
 
-.lang-toggle button[aria-pressed="true"] {
+.lang-toggle a:hover {
+  color: var(--koom-deep);
+}
+
+.lang-toggle a[aria-current="true"] {
   background: var(--koom-blue);
+  color: var(--koom-white);
+}
+
+.lang-toggle a[aria-current="true"]:hover {
   color: var(--koom-white);
 }
 

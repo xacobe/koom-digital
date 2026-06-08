@@ -26,17 +26,6 @@
   }
 
   /* ----------------------------------------------------------------------
-     Sélecteur de langue (structure prête — FR actif, EN à venir)
-     ---------------------------------------------------------------------- */
-  var langButtons = document.querySelectorAll('.lang-toggle button');
-  langButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      langButtons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-      btn.setAttribute('aria-pressed', 'true');
-    });
-  });
-
-  /* ----------------------------------------------------------------------
      Animations au scroll — fade + slide-up via IntersectionObserver
      ---------------------------------------------------------------------- */
   var revealTargets = document.querySelectorAll('[data-reveal], [data-reveal-group]');
@@ -103,7 +92,7 @@
       }
 
       if (status) {
-        status.textContent = 'Merci ! Votre message a bien été envoyé. Nous vous répondrons sous peu — vous pouvez aussi nous écrire directement sur WhatsApp pour une réponse plus rapide.';
+        status.textContent = form.dataset.successMessage || 'Merci ! Votre message a bien été envoyé. Nous vous répondrons sous peu — vous pouvez aussi nous écrire directement sur WhatsApp pour une réponse plus rapide.';
         status.classList.remove('is-error');
         status.classList.add('is-success', 'is-visible');
         status.setAttribute('role', 'status');
