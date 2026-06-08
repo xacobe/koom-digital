@@ -35,8 +35,6 @@
     .site-header{position:sticky;top:0;z-index:100;background:rgba(245,249,255,.85);border-bottom:1px solid var(--koom-border)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.85rem;max-width:1200px;margin-inline:auto;padding-inline:1.5rem}
     .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.25rem;color:var(--koom-navy)}
-    .page-hero{background:var(--koom-wash);color:var(--koom-navy);padding-block:4rem}
-    .page-hero p{color:var(--koom-muted)}
   </style>
 
   <link rel="preload" href="../css/style.css" as="style">
@@ -52,6 +50,7 @@
       <a class="brand" href="index.html">
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
           <rect width="64" height="64" rx="14" fill="#042C53"/>
+          <path d="M32 8 L56 32 L32 56 L8 32 Z M32 17 L47 32 L32 47 L17 32 Z" fill="none" stroke="#B5D4F4" stroke-width="1" opacity="0.16"/>
           <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#185FA5"/>
           <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
         </svg>
@@ -84,9 +83,9 @@
   <main id="main">
 
     <!-- ============================== PAGE HERO ============================== -->
-    <section class="page-hero">
+    <section class="page-hero page-hero--light">
       <div class="container" data-reveal>
-        <p class="breadcrumb" style="color:var(--koom-blue)"><a href="index.html" style="color:var(--koom-deep)">Home</a> <span aria-hidden="true">/</span> <span>NGOs &amp; institutions</span></p>
+        <p class="breadcrumb breadcrumb--on-light"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>NGOs &amp; institutions</span></p>
         <span class="hero-tag-label" style="color:var(--koom-blue)">For NGOs &amp; institutions</span>
         <h1>Web solutions with local impact</h1>
         <p>Multilingual portals, certified Drupal, WCAG accessibility. Local presence, international standards — for organisations whose mission demands trust and rigorous documentation.</p>
@@ -297,6 +296,7 @@
           <a class="brand" href="index.html">
             <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
               <rect width="64" height="64" rx="14" fill="#0C447C"/>
+            <path d="M32 8 L56 32 L32 56 L8 32 Z M32 17 L47 32 L32 47 L17 32 Z" fill="none" stroke="#B5D4F4" stroke-width="1" opacity="0.16"/>
               <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#378ADD"/>
               <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
             </svg>

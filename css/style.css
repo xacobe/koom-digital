@@ -45,6 +45,46 @@
 }
 
 /* --------------------------------------------------------------------------
+   Motifs culturels — empreintes ouest-africaines
+   Trois références tissées dans la trame visuelle du site :
+   • lattis de losanges imbriqués, dans l'esprit des tracés du bògòlanfini
+     (bogolan) malien-burkinabè, gravés en filigrane sur les fonds de couleur
+   • bandeau tissé aux largeurs irrégulières, écho du Faso Dan Fani — la
+     bande de coton filé localement, symbole burkinabè d'autonomie depuis
+     l'époque sankariste — utilisé comme « couture » entre les sections
+   • frise en dents triangulaires, rappel des parapets crénelés de
+     l'architecture en banco sahélienne (grandes mosquées de Bobo-Dioulasso
+     et de Djenné) en bordure des bandeaux sombres et de l'en-tête de page
+   -------------------------------------------------------------------------- */
+:root {
+  --pattern-lattice-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L60 32 L32 60 L4 32 Z M32 18 L46 32 L32 46 L18 32 Z' fill='none' stroke='white' stroke-opacity='.06' stroke-width='1'/%3E%3C/svg%3E");
+  --pattern-lattice-on-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L60 32 L32 60 L4 32 Z M32 18 L46 32 L32 46 L18 32 Z' fill='none' stroke='%23185FA5' stroke-opacity='.07' stroke-width='1'/%3E%3C/svg%3E");
+
+  --pattern-frieze-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='15' viewBox='0 0 44 15'%3E%3Cpath d='M0 15 L11 1.5 L22 15 L33 1.5 L44 15 Z' fill='white' fill-opacity='.07'/%3E%3C/svg%3E");
+  --pattern-frieze-on-wash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='15' viewBox='0 0 44 15'%3E%3Cpath d='M0 15 L11 1.5 L22 15 L33 1.5 L44 15 Z' fill='%230C447C' fill-opacity='.05'/%3E%3C/svg%3E");
+
+  --weave-band: repeating-linear-gradient(
+    90deg,
+    var(--koom-mid) 0 4px,
+    var(--koom-light) 4px 7px,
+    var(--koom-pale) 7px 9px,
+    var(--koom-blue) 9px 15px,
+    var(--koom-deep) 15px 19px,
+    var(--koom-mid) 19px 26px,
+    var(--koom-light) 26px 28px,
+    var(--koom-blue) 28px 34px
+  );
+}
+
+/* Bandeau tissé — séparateur visuel entre les sections, dans l'esprit des
+   bandes de coton cousues bord à bord pour former le Faso Dan Fani */
+.weave-seam {
+  height: 6px;
+  background-image: var(--weave-band);
+  background-size: 220px 100%;
+}
+
+/* --------------------------------------------------------------------------
    Reset & base
    -------------------------------------------------------------------------- */
 *,
@@ -94,12 +134,12 @@ h1, h2, h3, h4 {
   font-weight: 600;
   line-height: 1.15;
   margin: 0 0 var(--space-sm);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
-h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; }
-h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; }
-h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; letter-spacing: -0.025em; }
+h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; letter-spacing: -0.018em; }
 h4 { font-size: 1.1rem; font-weight: 600; }
 
 p {
@@ -170,7 +210,9 @@ select:focus-visible {
 }
 
 .section--dark {
-  background: var(--koom-navy);
+  background-color: var(--koom-navy);
+  background-image: var(--pattern-lattice-on-dark);
+  background-size: 64px 64px;
   color: var(--koom-wash);
 }
 
@@ -184,7 +226,9 @@ select:focus-visible {
 }
 
 .section--wash {
-  background: var(--koom-wash);
+  background-color: var(--koom-wash);
+  background-image: var(--pattern-lattice-on-light);
+  background-size: 64px 64px;
 }
 
 .section-head {
@@ -514,6 +558,22 @@ select:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 88vh;
+  position: relative;
+}
+
+/* Couture centrale — la bande tissée qui « assemble » les deux moitiés du
+   héros, comme deux pans de Faso Dan Fani cousus pour former une étoffe */
+.hero-split::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background-image: var(--weave-band);
+  background-size: 100% 220px;
+  z-index: 2;
 }
 
 .hero-half {
@@ -533,10 +593,20 @@ select:focus-visible {
   pointer-events: none;
 }
 
+/* Lattis discret en filigrane — écho des tracés losangés du bògòlanfini */
+.hero-half::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
 .hero-half-inner {
   max-width: 540px;
   margin-inline: auto;
   position: relative;
+  z-index: 1;
 }
 
 .hero-entreprises {
@@ -546,6 +616,10 @@ select:focus-visible {
 
 .hero-entreprises::before {
   color: var(--koom-deep);
+}
+
+.hero-entreprises::after {
+  background-image: var(--pattern-lattice-on-dark);
 }
 
 .hero-entreprises p {
@@ -559,6 +633,10 @@ select:focus-visible {
 
 .hero-ongs::before {
   color: var(--koom-pale);
+}
+
+.hero-ongs::after {
+  background-image: var(--pattern-lattice-on-light);
 }
 
 .hero-ongs p {
@@ -616,6 +694,18 @@ select:focus-visible {
     min-height: 0;
   }
 
+  /* La couture passe à l'horizontale entre les deux blocs empilés */
+  .hero-split::after {
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 6px;
+    transform: translateY(-50%);
+    background-size: 220px 100%;
+  }
+
   .hero-half {
     padding: var(--space-xl) var(--space-md);
   }
@@ -641,20 +731,34 @@ select:focus-visible {
   border-color: var(--koom-light);
 }
 
+/* Écrin à facettes — silhouette octogonale à coins coupés, avec un losange
+   imbriqué en retrait, dans la continuité du lattis bògòlanfini du site */
 .card-icon {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-sm);
+  position: relative;
   background: var(--koom-wash);
   color: var(--koom-blue);
   margin-bottom: var(--space-md);
+  clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+}
+
+.card-icon::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(24, 95, 165, 0.16);
+  clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+  pointer-events: none;
 }
 
 .card-icon svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .card h3 {
@@ -682,6 +786,22 @@ select:focus-visible {
   transform: translateY(-6px);
   box-shadow: var(--shadow-soft);
   border-color: var(--koom-mid);
+}
+
+/* Languette tissée — clin d'œil au Faso Dan Fani, comme une étiquette de
+   bande de coton cousue en haut de chaque carte */
+.pack-card::before,
+.plan-card::before,
+.testimonial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--space-lg);
+  width: 64px;
+  height: 4px;
+  background-image: var(--weave-band);
+  background-size: 130px 100%;
+  border-radius: 0 0 3px 3px;
 }
 
 .pack-card--featured {
@@ -805,10 +925,23 @@ select:focus-visible {
    Stat / dark band
    -------------------------------------------------------------------------- */
 .stat-band {
-  background: linear-gradient(120deg, var(--koom-navy), var(--koom-deep));
+  background-color: var(--koom-navy);
+  background-image: linear-gradient(120deg, var(--koom-navy), var(--koom-deep)), var(--pattern-lattice-on-dark);
+  background-size: auto, 64px 64px;
   color: var(--koom-white);
   text-align: center;
   padding-block: var(--space-2xl);
+  position: relative;
+}
+
+.stat-band::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 6px;
+  background-image: var(--weave-band);
+  background-size: 220px 100%;
 }
 
 .stat-band .container {
@@ -854,6 +987,7 @@ select:focus-visible {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .plan-card h3 {
@@ -911,7 +1045,8 @@ select:focus-visible {
 
 .project-thumb {
   aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, var(--koom-deep), var(--koom-blue));
+  background-color: var(--koom-blue);
+  background-image: linear-gradient(135deg, var(--koom-deep), var(--koom-blue)), var(--pattern-lattice-on-dark);
   display: grid;
   place-items: center;
   color: var(--koom-wash);
@@ -951,6 +1086,7 @@ select:focus-visible {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .testimonial blockquote {
@@ -1162,7 +1298,9 @@ select:focus-visible {
    Final CTA
    -------------------------------------------------------------------------- */
 .cta-final {
-  background: linear-gradient(150deg, var(--koom-blue), var(--koom-navy));
+  background-color: var(--koom-navy);
+  background-image: linear-gradient(150deg, var(--koom-blue), var(--koom-navy)), var(--pattern-lattice-on-dark);
+  background-size: auto, 64px 64px;
   color: var(--koom-white);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl) var(--space-lg);
@@ -1170,6 +1308,8 @@ select:focus-visible {
   gap: var(--space-xl);
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .cta-final h2 {
@@ -1208,9 +1348,47 @@ select:focus-visible {
    Page hero (interior pages)
    -------------------------------------------------------------------------- */
 .page-hero {
-  background: linear-gradient(160deg, var(--koom-navy), var(--koom-deep));
+  background-color: var(--koom-navy);
+  background-image: linear-gradient(160deg, var(--koom-navy), var(--koom-deep)), var(--pattern-lattice-on-dark);
+  background-size: auto, 64px 64px;
   color: var(--koom-wash);
   padding-block: var(--space-2xl);
+  position: relative;
+}
+
+/* Frise en dents triangulaires — écho des parapets crénelés des mosquées
+   en banco du Sahel, posée en bordure basse comme une corniche */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 15px;
+  background-image: var(--pattern-frieze-on-dark);
+  background-repeat: repeat-x;
+  background-size: 44px 15px;
+}
+
+/* Variante claire — utilisée sur la page ONGs & institutions, dont l'en-tête
+   adopte un fond clair (voir la surcharge #main .page-hero de cette page) */
+#main .page-hero.page-hero--light {
+  background-color: var(--koom-wash);
+  background-image: var(--pattern-lattice-on-light);
+  color: var(--koom-navy);
+}
+
+#main .page-hero.page-hero--light p {
+  color: var(--koom-muted);
+}
+
+#main .page-hero.page-hero--light .tag {
+  border-color: var(--koom-pale);
+  color: var(--koom-deep);
+  background: var(--koom-white);
+}
+
+.page-hero--light::after {
+  background-image: var(--pattern-frieze-on-wash);
 }
 
 .page-hero p {
@@ -1246,6 +1424,19 @@ select:focus-visible {
   color: var(--koom-white);
 }
 
+/* Variante claire — fil d'Ariane sur l'en-tête à fond clair (page ONGs) */
+.breadcrumb--on-light {
+  color: var(--koom-blue);
+}
+
+.breadcrumb--on-light a {
+  color: var(--koom-deep);
+}
+
+.breadcrumb--on-light a:hover {
+  color: var(--koom-navy);
+}
+
 /* --------------------------------------------------------------------------
    Process steps
    -------------------------------------------------------------------------- */
@@ -1279,9 +1470,24 @@ select:focus-visible {
    Footer
    -------------------------------------------------------------------------- */
 .site-footer {
-  background: var(--koom-navy);
+  background-color: var(--koom-navy);
+  background-image: var(--pattern-lattice-on-dark);
+  background-size: 64px 64px;
   color: var(--koom-pale);
   padding-block: var(--space-2xl) var(--space-lg);
+  position: relative;
+}
+
+/* Couture supérieure — la bande tissée scelle le pied de page au reste du
+   site, comme la dernière bande cousue sur une étoffe Faso Dan Fani */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 6px;
+  background-image: var(--weave-band);
+  background-size: 220px 100%;
 }
 
 .footer-grid {
