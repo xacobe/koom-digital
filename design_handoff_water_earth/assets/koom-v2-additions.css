@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Koom Digital — v2 "Water & Earth" — ADDITIONS for css/style.css
+   --------------------------------------------------------------------------
+   These are the NEW tokens and component rules introduced in the v2 redesign.
+   MERGE them into your existing css/style.css:
+     • Paste the :root block additions inside your existing :root { } block.
+     • Paste the component rules after the matching component in style.css.
+   Nothing here removes your existing blue system — it adds the earth layer
+   and warms the shared motifs.
+   ========================================================================== */
+
+/* ---- 1. ADD THESE CUSTOM PROPERTIES inside your existing :root { } -------- */
+:root {
+  /* Earth / laterite — the soil of Burkina Faso */
+  --koom-ochre:      #C2772E;   /* primary warm accent / CTA */
+  --koom-ochre-deep: #8F501C;   /* warm text on light, deep accent */
+  --koom-clay:       #A6452A;   /* laterite red — rare deep accent */
+  --koom-sand:       #E9CBA1;   /* warm light, accents on dark */
+  --koom-ochre-wash: #F7EFE2;   /* warm tinted surface */
+
+  /* Faso Dan Fani weave — now with earth woven through the water.
+     REPLACE the value of your existing --weave-band with this. */
+  --weave-band: repeating-linear-gradient(
+    90deg,
+    #185FA5 0 5px,
+    #378ADD 5px 8px,
+    #E9CBA1 8px 10px,
+    #C2772E 10px 16px,
+    #042C53 16px 20px,
+    #378ADD 20px 27px,
+    #8F501C 27px 29px,
+    #185FA5 29px 35px
+  );
+
+  /* Bolder bògòlanfini lattice (ochre on dark, blue on light).
+     REPLACE your existing --pattern-lattice-* values with these. */
+  --pattern-lattice-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23C2772E' stroke-opacity='.17' stroke-width='1.3'/%3E%3C/svg%3E");
+  --pattern-lattice-on-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23185FA5' stroke-opacity='.1' stroke-width='1.3'/%3E%3C/svg%3E");
+
+  /* Mudcloth dentil band (zigzag) — for footers, card edges, hero bases */
+  --mudcloth: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='22'%3E%3Cpath d='M0 22 L12 4 L24 22 Z M24 22 L36 4 L48 22 Z' fill='%23C2772E'/%3E%3Cpath d='M12 4 L24 22 L36 4' fill='none' stroke='%23E9CBA1' stroke-width='1' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* ---- 2. NEW: earth call-to-action button -------------------------------- */
+/* Use for the single most important action on a screen (Devis gratuit,
+   WhatsApp). Keep .btn-primary (blue) for everything else. */
+.btn-earth {
+  background: var(--koom-ochre);
+  color: #fff;
+  box-shadow: var(--shadow-card);
+}
+.btn-earth:hover { background: var(--koom-ochre-deep); }
+
+/* ---- 3. NEW: earth tag (use to highlight the local languages) ----------- */
+.tag--earth {
+  border-color: #E6C79B;
+  color: var(--koom-ochre-deep);
+  background: var(--koom-ochre-wash);
+}
+
+/* ---- 4. Featured pricing pack → warm tab + earth border ------------------ */
+/* Adjust the featured-pack accent from blue to ochre so it draws the eye. */
+.pack-card--featured { border-color: var(--koom-ochre); }
+.pack-card--featured::before { background: var(--koom-ochre); }   /* the "Le plus choisi" ribbon */
+
+/* ---- 5. NEW: reusable mudcloth accent band ------------------------------ */
+/* Drop <div class="mud-band"></div> into footers / card tops / hero bases. */
+.mud-band {
+  height: 16px;
+  background-color: var(--koom-navy);
+  background-image: var(--mudcloth);
+  background-repeat: repeat-x;
+  background-size: 48px 16px;
+}
+
+/* ---- 6. NEW: full-bleed woven divider between page sections -------------- */
+/* Drop <div class="section-seam"></div> between major sections. */
+.section-seam {
+  height: 8px;
+  background-image: var(--weave-band);
+  background-size: 200px 100%;
+}
+
+/* ---- 7. Eyebrows now carry the earth accent (optional global shift) ------ */
+/* If your .eyebrow is currently blue, switch it to earth on light grounds.
+   Keep it sand-coloured on dark sections. */
+.eyebrow { color: var(--koom-ochre-deep); }
+.section--dark .eyebrow,
+.hero .eyebrow { color: var(--koom-sand); }

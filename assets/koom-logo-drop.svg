@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Koom Digital">
+  
+  <defs>
+    <clipPath id="koom-drop-clip">
+      <path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z"></path>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#koom-drop-clip)">
+    <rect x="0" y="0" width="64" height="64" fill="#185FA5"></rect>
+    <rect x="0" y="0" width="64" height="29" fill="#378ADD"></rect>
+    <rect x="0" y="29" width="64" height="2.6" fill="#85B7EB"></rect>
+    <rect x="0" y="34" width="64" height="3" fill="#E9CBA1"></rect>
+    <rect x="0" y="38.5" width="64" height="5" fill="#C2772E"></rect>
+    <rect x="0" y="45" width="64" height="2.2" fill="#8F501C"></rect>
+    <rect x="0" y="48" width="64" height="6" fill="#042C53"></rect>
+  </g>
+  <path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z" fill="none" stroke="#042C53" stroke-opacity="0.22" stroke-width="1.3"></path>
+  <path d="M30 18 C28 23 27 28 27.5 33" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity="0.55"></path>
+</svg>

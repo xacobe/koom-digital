@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Koom Digital — Design System v2  ·  "Water & Earth"
+   Layers on koom.css (production tokens/components) + ds.css (specimen utils).
+   Adds: Burkina ochre as a true secondary, warmer weave, bolder cultural
+   motifs, a textured cover, full-bleed woven dividers, new logo system.
+   ========================================================================== */
+
+:root {
+  /* ---- Earth / laterite — the soil of Burkina Faso ---- */
+  --koom-ochre:      #C2772E;   /* primary warm accent */
+  --koom-ochre-deep: #8F501C;   /* warm text on light, deep accent */
+  --koom-clay:       #A6452A;   /* laterite red — rare deep accent */
+  --koom-sand:       #E9CBA1;   /* warm light */
+  --koom-ochre-wash: #F7EFE2;   /* warm tinted surface */
+
+  /* ---- Faso Dan Fani, now with earth woven through the water ---- */
+  --weave-warm: repeating-linear-gradient(
+    90deg,
+    #185FA5 0 5px,
+    #378ADD 5px 8px,
+    #E9CBA1 8px 10px,
+    #C2772E 10px 16px,
+    #042C53 16px 20px,
+    #378ADD 20px 27px,
+    #8F501C 27px 29px,
+    #185FA5 29px 35px
+  );
+
+  /* ---- Bolder bògòlanfini lattice ---- */
+  --lattice-bold-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23C2772E' stroke-opacity='.17' stroke-width='1.3'/%3E%3C/svg%3E");
+  --lattice-bold-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23185FA5' stroke-opacity='.1' stroke-width='1.3'/%3E%3C/svg%3E");
+
+  /* ---- Mudcloth dentil band (zigzag) ---- */
+  --mudcloth: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='22'%3E%3Cpath d='M0 22 L12 4 L24 22 Z M24 22 L36 4 L48 22 Z' fill='%23C2772E'/%3E%3Cpath d='M12 4 L24 22 L36 4' fill='none' stroke='%23E9CBA1' stroke-width='1' opacity='.5'/%3E%3C/svg%3E");
+
+  /* ---- Override production motifs so EVERY component reads warmer ---- */
+  --weave-band: var(--weave-warm);
+  --pattern-lattice-on-dark: var(--lattice-bold-dark);
+  --pattern-lattice-on-light: var(--lattice-bold-light);
+}
+
+/* The weave seam ships at 220px; warm version reads better a touch tighter */
+.weave-seam { height: 7px; background-size: 200px 100%; }
+
+/* --------------------------------------------------------------------------
+   Global tone shifts
+   -------------------------------------------------------------------------- */
+body.ds { background: var(--koom-white); }
+
+/* Section numbers + eyebrows now carry the earth accent */
+.ds-sec-num { color: var(--koom-ochre-deep); }
+.eyebrow { color: var(--koom-ochre-deep); }
+.section--dark .eyebrow { color: var(--koom-sand); }
+
+/* Remove v1 hard divider — woven seams divide sections instead */
+.ds-section { border-bottom: none; padding-block: clamp(3.5rem, 7vw, 6rem); }
+.ds-section > h2 { font-size: clamp(2rem, 3.6vw, 3rem); }
+
+/* --------------------------------------------------------------------------
+   Full-bleed woven divider between sections
+   -------------------------------------------------------------------------- */
+.ds-seam {
+  height: 8px;
+  background-image: var(--weave-warm);
+  background-size: 200px 100%;
+}
+.ds-seam--thick { height: 12px; }
+
+/* --------------------------------------------------------------------------
+   Sidebar — warmer, with earth in the seam and numbers
+   -------------------------------------------------------------------------- */
+.ds-side { background-image: var(--lattice-bold-dark); background-size: 60px 60px; }
+.ds-weave-mini { height: 6px; background-image: var(--weave-warm); background-size: 120px 100%; }
+.ds-nav a .num { color: var(--koom-sand); }
+.ds-nav a:hover { background: rgba(194, 119, 46, 0.16); color: #fff; }
+.ds-nav a.is-active { background: var(--koom-blue); }
+.ds-nav a.is-active .num { color: var(--koom-sand); }
+.ds-side-foot em { color: var(--koom-sand); font-style: normal; }
+
+/* --------------------------------------------------------------------------
+   Cover — the opening statement
+   -------------------------------------------------------------------------- */
+.cover {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--koom-navy);
+  background-image:
+    radial-gradient(120% 90% at 80% -10%, rgba(56,138,221,0.35), transparent 55%),
+    radial-gradient(90% 80% at 0% 110%, rgba(194,119,46,0.28), transparent 55%),
+    var(--lattice-bold-dark);
+  background-size: auto, auto, 60px 60px;
+  color: var(--koom-wash);
+  padding: clamp(3rem, 7vw, 6rem) clamp(var(--space-lg), 6vw, 5.5rem) clamp(4rem, 8vw, 7rem);
+}
+.cover::before {
+  content: ''; position: absolute; inset-inline: 0; top: 0; height: 8px;
+  background-image: var(--weave-warm); background-size: 200px 100%;
+}
+.cover::after {
+  content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 22px;
+  background-image: var(--mudcloth); background-repeat: repeat-x; background-size: 48px 22px;
+}
+
+.cover-mark {
+  display: flex; align-items: center; gap: 1.3rem;
+  margin-bottom: clamp(1.8rem, 4vw, 3rem);
+}
+.cover-mark svg { width: clamp(72px, 9vw, 104px); height: clamp(72px, 9vw, 104px); }
+.cover-mark .wm {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1;
+}
+.cover-mark .wm strong { font-weight: 700; color: #fff; }
+.cover-mark .wm span { font-weight: 300; color: var(--koom-light); }
+
+.cover .ds-sec-num { color: var(--koom-sand); }
+.cover h1 {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  color: #fff; max-width: 16ch; margin: 0.4rem 0 0;
+}
+.cover .accent-rule {
+  width: 64px; height: 5px; border-radius: 3px;
+  background: var(--koom-ochre); margin: var(--space-lg) 0 var(--space-md);
+}
+.cover .tagline {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem); color: var(--koom-sand);
+  letter-spacing: 0.01em; margin: 0;
+}
+.cover .meta {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem;
+  margin-top: var(--space-xl); padding-top: var(--space-md);
+  border-top: 1px solid rgba(233,203,161,0.22);
+  font-size: 0.86rem; color: var(--koom-pale);
+}
+.cover .meta b { color: #fff; font-weight: 600; }
+.cover .meta .langs { display: inline-flex; gap: 0.4rem; }
+.cover .meta .langs span {
+  border: 1px solid rgba(233,203,161,0.4); color: var(--koom-sand);
+  border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   New logo system specimens
+   -------------------------------------------------------------------------- */
+.logo-lab { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.logo-concept {
+  border: 1px solid var(--koom-border); border-radius: var(--radius-md);
+  overflow: hidden; background: var(--koom-white);
+}
+.logo-concept .stage {
+  height: 170px; display: grid; place-items: center;
+  background: var(--koom-ochre-wash);
+}
+.logo-concept.is-primary .stage { background: var(--koom-wash); }
+.logo-concept .stage.dark {
+  background: var(--koom-navy); background-image: var(--lattice-bold-dark); background-size: 60px 60px;
+}
+.logo-concept svg { width: 86px; height: 86px; }
+.logo-concept .cap { padding: 0.9rem 1.1rem 1.1rem; }
+.logo-concept .cap .t { font-family: var(--font-display); font-weight: 700; color: var(--koom-navy); font-size: 1rem; }
+.logo-concept .cap .t .pill {
+  font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem;
+  background: var(--koom-ochre); color: #fff; padding: 0.12rem 0.5rem; border-radius: 999px;
+}
+.logo-concept .cap .d { font-size: 0.84rem; color: var(--koom-muted); margin-top: 0.25rem; line-height: 1.5; }
+
+/* Big hero lockup on light + dark */
+.lockup { display: inline-flex; align-items: center; gap: 0.9rem; }
+.lockup svg { width: 56px; height: 56px; }
+.lockup .wm { font-family: var(--font-display); font-size: 1.9rem; line-height: 1; }
+.lockup .wm strong { font-weight: 700; }
+.lockup .wm span { font-weight: 300; }
+.lockup--light .wm strong { color: var(--koom-navy); } .lockup--light .wm span { color: var(--koom-muted); }
+.lockup--dark .wm strong { color: #fff; } .lockup--dark .wm span { color: var(--koom-light); }
+
+/* --------------------------------------------------------------------------
+   Mudcloth accent band (decorative, reusable)
+   -------------------------------------------------------------------------- */
+.mud-band {
+  height: 26px; background-color: var(--koom-navy);
+  background-image: var(--mudcloth); background-repeat: repeat-x; background-size: 48px 26px;
+  border-radius: 4px;
+}
+
+/* Warm panel variant */
+.ds-panel--ochre {
+  background: var(--koom-ochre-wash);
+  border-color: #ECD9BE;
+}
+
+/* --------------------------------------------------------------------------
+   Ochre-aware accents on existing components (proposed evolution)
+   -------------------------------------------------------------------------- */
+.btn-earth { background: var(--koom-ochre); color: #fff; box-shadow: var(--shadow-card); }
+.btn-earth:hover { background: var(--koom-ochre-deep); }
+
+.tag--earth {
+  border-color: #E6C79B !important; color: var(--koom-ochre-deep) !important;
+  background: var(--koom-ochre-wash) !important;
+}
+
+/* Featured pack tab → earth, to draw the eye warmly */
+.pack-card--featured { border-color: var(--koom-ochre); }
+.pack-card--featured::before { content: ''; background-image: var(--weave-warm); }
+.pack-card--featured.is-earth::before {
+  content: 'Le plus choisi'; background: var(--koom-ochre);
+}
+
+/* Step number in earth */
+.step::before { color: var(--koom-ochre); }
+
+/* Motif tiles: bolder + an ochre lattice variant */
+.motif-tile { height: 160px; }
+.motif-lattice-dark { background-image: var(--lattice-bold-dark); background-size: 60px 60px; }
+.motif-lattice-light { background-image: var(--lattice-bold-light); background-size: 60px 60px; }
+.motif-mud { background-color: var(--koom-navy); }
+.motif-mud::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--mudcloth); background-repeat: repeat; background-size: 48px 22px; opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Color section — pairing showcase (water meets earth)
+   -------------------------------------------------------------------------- */
+.pairing {
+  display: grid; grid-template-columns: 1fr 1fr; border-radius: var(--radius-md); overflow: hidden;
+  border: 1px solid var(--koom-border); min-height: 130px;
+}
+.pairing .half { display: grid; place-items: center; padding: 1rem; text-align: center; }
+.pairing .water { background: linear-gradient(150deg, var(--koom-navy), var(--koom-deep)); color: var(--koom-sand); }
+.pairing .earth { background: linear-gradient(150deg, var(--koom-ochre), var(--koom-ochre-deep)); color: #fff; }
+.pairing .half .mono { background: rgba(255,255,255,0.16); color: inherit; }
+
+@media (max-width: 940px) {
+  .cover { padding-inline: var(--space-md); }
+  .pairing { grid-template-columns: 1fr; }
+}

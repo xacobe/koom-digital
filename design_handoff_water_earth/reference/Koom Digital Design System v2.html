@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koom Digital — Design System v2</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon-v2.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/koom.css">
+  <link rel="stylesheet" href="assets/ds.css">
+  <link rel="stylesheet" href="assets/ds-v2.css">
+</head>
+<body class="ds">
+
+<!-- ============================== SVG MARK SPRITE ============================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="koom-drop" viewBox="0 0 64 64">
+    <defs><clipPath id="koom-drop-clip"><path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z"/></clipPath></defs>
+    <g clip-path="url(#koom-drop-clip)">
+      <rect x="0" y="0" width="64" height="64" fill="#185FA5"/>
+      <rect x="0" y="0" width="64" height="29" fill="#378ADD"/>
+      <rect x="0" y="29" width="64" height="2.6" fill="#85B7EB"/>
+      <rect x="0" y="34" width="64" height="3" fill="#E9CBA1"/>
+      <rect x="0" y="38.5" width="64" height="5" fill="#C2772E"/>
+      <rect x="0" y="45" width="64" height="2.2" fill="#8F501C"/>
+      <rect x="0" y="48" width="64" height="6" fill="#042C53"/>
+    </g>
+    <path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z" fill="none" stroke="#042C53" stroke-opacity="0.22" stroke-width="1.3"/>
+    <path d="M30 18 C28 23 27 28 27.5 33" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
+  </symbol>
+
+  <symbol id="koom-badge" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="15" fill="#042C53"/>
+    <path d="M2 47 C14 43 22 43 32 45 C42 47 52 45 62 42 L62 62 L2 62 Z" fill="#C2772E"/>
+    <path d="M2 51 C16 48 26 49 34 50 C44 51 54 49 62 47" fill="none" stroke="#8F501C" stroke-width="1.4" opacity="0.55"/>
+    <path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z" fill="#378ADD"/>
+    <path d="M32 19 C32 19 24 30.5 24 37.5 C24 42.5 27.6 46 32 46" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
+  </symbol>
+
+  <symbol id="koom-mono" viewBox="0 0 64 64">
+    <path d="M32 9 C32 9 19 26 19 37.5 C19 45.5 24.8 51 32 51 C39.2 51 45 45.5 45 37.5 C45 26 32 9 32 9Z" fill="none" stroke="#185FA5" stroke-width="2.8" stroke-linejoin="round"/>
+    <path d="M28.5 32 C28.5 37 30 41 33.5 43.5" fill="none" stroke="#C2772E" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<div class="ds-shell">
+
+  <!-- ============================== SIDEBAR ============================== -->
+  <aside class="ds-side">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" width="40" height="40"><use href="#koom-badge"></use></svg>
+      <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
+    </a>
+    <p class="ds-side-kicker">Design System · v2</p>
+    <div class="ds-weave-mini"></div>
+
+    <nav class="ds-nav" aria-label="Design system sections">
+      <a href="#overview"><span class="num">00</span> Foundations</a>
+      <a href="#logo"><span class="num">01</span> Logo &amp; mark</a>
+      <a href="#color"><span class="num">02</span> Water &amp; earth</a>
+      <a href="#type"><span class="num">03</span> Typography</a>
+      <a href="#motifs"><span class="num">04</span> Cultural motifs</a>
+      <a href="#layout"><span class="num">05</span> Spacing &amp; layout</a>
+      <a href="#icons"><span class="num">06</span> Iconography</a>
+      <a href="#components"><span class="num">07</span> Components</a>
+      <a href="#applications"><span class="num">08</span> In use</a>
+    </nav>
+
+    <div class="ds-side-foot">
+      Koom Digital · Ouagadougou, Burkina&nbsp;Faso<br>
+      <em>Koom</em> — “water” in Mooré<br>
+      Digital roots, global reach.
+    </div>
+  </aside>
+
+  <!-- ============================== CONTENT ============================== -->
+  <main class="ds-main" id="top">
+
+    <!-- ===== COVER ===== -->
+    <header class="cover">
+      <div class="cover-mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-badge"></use></svg>
+        <span class="wm"><strong>Koom</strong> <span>Digital</span></span>
+      </div>
+      <p class="ds-sec-num">Brand &amp; Design System — Édition v2</p>
+      <h1>Water, woven with earth.</h1>
+      <div class="accent-rule"></div>
+      <p class="tagline">Digital roots, global reach.</p>
+      <div class="meta">
+        <span><b>Agency</b> · Web design &amp; Drupal development</span>
+        <span><b>Based in</b> · Ouagadougou, Burkina Faso</span>
+        <span><b>For</b> · NGOs · institutions · SMEs · startups · public sector</span>
+        <span class="langs"><span>FR</span><span>EN</span><span>Mooré</span><span>Fulfuldé</span></span>
+      </div>
+    </header>
+
+    <!-- ===== 00 FOUNDATIONS ===== -->
+    <section class="ds-section" id="overview">
+      <p class="ds-sec-num">00 — Foundations</p>
+      <h2>An agency rooted in its soil, built with the world's best tools.</h2>
+      <p class="ds-lead">In Mooré, <strong>koom</strong> means water — what nourishes, gives life, connects communities. It is also the emblem of Drupal, the CMS we build on. v2 keeps that water at the core and adds the <strong>red earth of Burkina Faso</strong> — laterite ochre — so the identity now holds both halves of the promise: <em>local roots, global reach</em>.</p>
+
+      <div class="ds-grid ds-grid--2">
+        <div class="ds-panel ds-panel--dark">
+          <p class="eyebrow">What changed in v2</p>
+          <ul class="pack-list" style="margin-top:0.6rem">
+            <li style="color:var(--koom-wash)">The logo loses the diamond — the drop is now <strong style="color:#fff">woven from water and earth</strong></li>
+            <li style="color:var(--koom-wash)">Ochre becomes a <strong style="color:#fff">true secondary colour</strong>, not a footnote</li>
+            <li style="color:var(--koom-wash)">Faso Dan Fani, bògòlanfini &amp; banco motifs are <strong style="color:#fff">more present</strong>, threaded through every seam</li>
+            <li style="color:var(--koom-wash)">Still calm, credible and accessible — built for funders and ministries</li>
+          </ul>
+        </div>
+        <div class="ds-panel ds-panel--ochre">
+          <p class="eyebrow">Voice</p>
+          <p style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--koom-navy);line-height:1.3;margin:0.4rem 0 0">“Local presence, international standards.”</p>
+          <p style="margin-top:0.8rem;color:var(--koom-ochre-deep)">Confident, plain-spoken, never corporate. We address a market trader in Ouaga and a UN funder in the same calm, credible register — across four languages.</p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Who we build for</h3>
+      <div class="ds-grid ds-grid--4">
+        <div class="card" style="padding:var(--space-md)">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-6h6v6M4 12h16" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <h3 style="font-size:1.05rem">NGOs &amp; institutions</h3>
+          <p style="font-size:0.88rem">Multilingual portals built to the standards funders expect.</p>
+        </div>
+        <div class="card" style="padding:var(--space-md)">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l7-4 7 4v14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-4h6v4M9 9h.01M15 9h.01M9 13h.01M15 13h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3 style="font-size:1.05rem">Public sector</h3>
+          <p style="font-size:0.88rem">Secure, multi-role Drupal for ministries and agencies.</p>
+        </div>
+        <div class="card" style="padding:var(--space-md)">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v13H4zM4 7l2-4h12l2 4M9 12h6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <h3 style="font-size:1.05rem">SMEs &amp; traders</h3>
+          <p style="font-size:0.88rem">Fast sites with WhatsApp &amp; Mobile Money, from 120k FCFA.</p>
+        </div>
+        <div class="card" style="padding:var(--space-md)">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s4 4 4 9a4 4 0 0 1-8 0c0-5 4-9 4-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21h6M10 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3 style="font-size:1.05rem">Startups</h3>
+          <p style="font-size:0.88rem">Product sites and platforms ready to scale across borders.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 01 LOGO ===== -->
+    <section class="ds-section" id="logo">
+      <p class="ds-sec-num">01 — Logo &amp; mark</p>
+      <h2>The drop, rewoven.</h2>
+      <p class="ds-lead">Out goes the diamond behind the mark. The new logomark is a single <strong>drop of water whose body is woven like Faso Dan Fani cloth</strong> — blue water above, ochre earth below. One glyph now carries water (koom), the Drupal drop, hand-woven craft, and the laterite ground of Burkina Faso.</p>
+
+      <h3 class="ds-subhead">The mark system — three forms, one idea</h3>
+      <div class="logo-lab">
+        <div class="logo-concept is-primary">
+          <div class="stage"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-drop"></use></svg></div>
+          <div class="cap"><p class="t">Woven drop <span class="pill">Primary</span></p><p class="d">The signature mark — water above, earth below, a single highlight ripple. Use wherever space allows.</p></div>
+        </div>
+        <div class="logo-concept">
+          <div class="stage dark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-badge"></use></svg></div>
+          <div class="cap"><p class="t">Badge</p><p class="d">Drop on a navy tile with an ochre earth-line. For favicons, app icons and avatars.</p></div>
+        </div>
+        <div class="logo-concept">
+          <div class="stage"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-mono"></use></svg></div>
+          <div class="cap"><p class="t">Monoline</p><p class="d">Single-weight outline with one ochre stroke. For stamps, embroidery, one-colour print.</p></div>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Primary lockup</h3>
+      <div class="ds-grid ds-grid--2">
+        <div>
+          <div class="logo-stage logo-stage--light">
+            <span class="lockup lockup--light">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-drop"></use></svg>
+              <span class="wm"><strong>Koom</strong> <span>Digital</span></span>
+            </span>
+          </div>
+          <p class="ds-note" style="margin-top:0.6rem">On light — the woven drop beside the wordmark.</p>
+        </div>
+        <div>
+          <div class="logo-stage logo-stage--dark">
+            <span class="lockup lockup--dark">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-drop"></use></svg>
+              <span class="wm"><strong>Koom</strong> <span>Digital</span></span>
+            </span>
+          </div>
+          <p class="ds-note" style="margin-top:0.6rem">On navy — the drop keeps its woven body; the wordmark reverses to white + light blue.</p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Construction &amp; clear space</h3>
+      <div class="ds-grid ds-grid--2">
+        <div class="ds-panel">
+          <div style="display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap">
+            <svg viewBox="0 0 64 64" width="120" height="120" aria-hidden="true"><use href="#koom-drop"></use></svg>
+            <ul class="pack-list" style="margin:0">
+              <li>Drop drawn on a 64-unit grid — height ≈ 42, width ≈ 26</li>
+              <li>Woven body: water band fills the top ~60%</li>
+              <li><strong>Earth line</strong> — sand → ochre → deep-ochre — sits at the waterline</li>
+              <li>One white ripple, top-left, at 55% opacity</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ds-panel ds-panel--wash">
+          <div class="logo-stage" style="border:none;background:transparent;min-height:180px">
+            <div class="clearspace">
+              <span class="ring" aria-hidden="true"></span>
+              <span class="lockup lockup--light">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#koom-drop"></use></svg>
+                <span class="wm"><strong>Koom</strong> <span>Digital</span></span>
+              </span>
+            </div>
+          </div>
+          <p class="ds-note" style="text-align:center">Keep clear space ≥ the height of the drop on every side.</p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Do &amp; don't</h3>
+      <div class="dodont">
+        <div class="dd dd--do">
+          <div class="dd-stage"><svg viewBox="0 0 64 64" width="58" height="58" aria-hidden="true"><use href="#koom-drop"></use></svg></div>
+          <p class="dd-tag">Keep water above, earth below</p>
+        </div>
+        <div class="dd dd--no">
+          <div class="dd-stage"><svg viewBox="0 0 64 64" width="58" height="58" aria-hidden="true" style="filter:grayscale(1)"><use href="#koom-drop"></use></svg></div>
+          <p class="dd-tag">Don't desaturate the weave</p>
+        </div>
+        <div class="dd dd--no">
+          <div class="dd-stage"><svg viewBox="0 0 64 64" width="58" height="40" preserveAspectRatio="none" aria-hidden="true"><use href="#koom-drop"></use></svg></div>
+          <p class="dd-tag">Don't stretch or distort</p>
+        </div>
+        <div class="dd dd--no">
+          <div class="dd-stage" style="background:#C2772E"><svg viewBox="0 0 64 64" width="58" height="58" aria-hidden="true"><use href="#koom-drop"></use></svg></div>
+          <p class="dd-tag">Don't sit it on ochre</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 02 COLOR ===== -->
+    <section class="ds-section" id="color">
+      <p class="ds-sec-num">02 — Water &amp; earth</p>
+      <h2>Two elements, one palette.</h2>
+      <p class="ds-lead">The blues are the source — calm, credible, the colour of water and of Drupal. v2 pairs them with the <strong>laterite earth of Burkina Faso</strong>: a warm ochre family that grounds the brand in its place. Blue leads; ochre accents, warms and signals action.</p>
+
+      <h3 class="ds-subhead">Water · primary</h3>
+      <div class="ds-grid ds-grid--4">
+        <div class="swatch"><div class="swatch-chip" style="background:#042C53"><span class="var">--koom-navy</span></div><div class="swatch-meta"><p class="name">Navy</p><p class="hex">#042C53</p><p class="role">Darkest surfaces, footers, hero grounds.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#0C447C"><span class="var">--koom-deep</span></div><div class="swatch-meta"><p class="name">Deep</p><p class="hex">#0C447C</p><p class="role">Gradient partner, reversed mark ground.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#185FA5"><span class="var">--koom-blue</span></div><div class="swatch-meta"><p class="name">Blue · primary</p><p class="hex">#185FA5</p><p class="role">Buttons, links, the drop.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#378ADD"><span class="var">--koom-mid</span></div><div class="swatch-meta"><p class="name">Mid</p><p class="hex">#378ADD</p><p class="role">Hover states, focus ring, highlights.</p></div></div>
+      </div>
+
+      <h3 class="ds-subhead">Earth · secondary <span style="font-family:var(--font-body);font-weight:400;font-size:0.8rem;color:var(--koom-ochre-deep);text-transform:none;letter-spacing:0">laterite &amp; sand of Burkina Faso</span></h3>
+      <div class="ds-grid ds-grid--4">
+        <div class="swatch"><div class="swatch-chip" style="background:#C2772E"><span class="var">--koom-ochre</span></div><div class="swatch-meta"><p class="name">Ochre · secondary</p><p class="hex">#C2772E</p><p class="role">Warm accent, CTAs, the earth in the weave.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#8F501C"><span class="var">--koom-ochre-deep</span></div><div class="swatch-meta"><p class="name">Ochre deep</p><p class="hex">#8F501C</p><p class="role">Warm text on light, eyebrows.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#A6452A"><span class="var">--koom-clay</span></div><div class="swatch-meta"><p class="name">Clay</p><p class="hex">#A6452A</p><p class="role">Rare deep accent — laterite red.</p></div></div>
+        <div class="swatch"><div class="swatch-chip on-light" style="background:#E9CBA1"><span class="var">--koom-sand</span></div><div class="swatch-meta"><p class="name">Sand</p><p class="hex">#E9CBA1</p><p class="role">Warm light, accents on dark.</p></div></div>
+      </div>
+
+      <h3 class="ds-subhead">Surfaces &amp; neutrals</h3>
+      <div class="ds-grid ds-grid--4">
+        <div class="swatch"><div class="swatch-chip on-light" style="background:#E6F1FB"><span class="var">--koom-wash</span></div><div class="swatch-meta"><p class="name">Water wash</p><p class="hex">#E6F1FB</p><p class="role">Cool tinted sections.</p></div></div>
+        <div class="swatch"><div class="swatch-chip on-light" style="background:#F7EFE2"><span class="var">--koom-ochre-wash</span></div><div class="swatch-meta"><p class="name">Earth wash</p><p class="hex">#F7EFE2</p><p class="role">Warm tinted sections.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#0D1B2A"><span class="var">--koom-text</span></div><div class="swatch-meta"><p class="name">Text</p><p class="hex">#0D1B2A</p><p class="role">Primary body text.</p></div></div>
+        <div class="swatch"><div class="swatch-chip" style="background:#4A6785"><span class="var">--koom-muted</span></div><div class="swatch-meta"><p class="name">Muted</p><p class="hex">#4A6785</p><p class="role">Secondary text.</p></div></div>
+      </div>
+
+      <h3 class="ds-subhead">Water meets earth</h3>
+      <p class="ds-note" style="margin-bottom:0.8rem">The defining pairing of the brand. Deep water against warm laterite — the contrast that says “rooted here, working everywhere”. Use ochre as roughly one part to four of blue.</p>
+      <div class="pairing">
+        <div class="half water"><div><span class="mono">--koom-navy</span><br><span style="font-size:0.78rem;opacity:0.8">water · the source</span></div></div>
+        <div class="half earth"><div><span class="mono">--koom-ochre</span><br><span style="font-size:0.78rem;opacity:0.9">earth · the roots</span></div></div>
+      </div>
+
+      <h3 class="ds-subhead">The woven ramp</h3>
+      <p class="ds-note" style="margin-bottom:0.8rem">Every gradient, seam and motif draws from this single run — deep water down to clear sky, then warmed by sand and ochre.</p>
+      <div class="ramp">
+        <div style="background:#042C53;color:#B5D4F4">042C53</div>
+        <div style="background:#0C447C;color:#B5D4F4">0C447C</div>
+        <div style="background:#185FA5;color:#E6F1FB">185FA5</div>
+        <div style="background:#378ADD;color:#fff">378ADD</div>
+        <div style="background:#85B7EB;color:#042C53">85B7EB</div>
+        <div style="background:#E9CBA1;color:#5b3c14">E9CBA1</div>
+        <div style="background:#C2772E;color:#fff">C2772E</div>
+        <div style="background:#8F501C;color:#F7EFE2">8F501C</div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 03 TYPOGRAPHY ===== -->
+    <section class="ds-section" id="type">
+      <p class="ds-sec-num">03 — Typography</p>
+      <h2>Geometric display, humanist text.</h2>
+      <p class="ds-lead"><strong>Syne</strong> brings a technical, slightly unconventional character to headings and the brand. <strong>DM Sans</strong> keeps body copy clean, friendly and highly legible — including at the light weights used in the wordmark.</p>
+
+      <div class="ds-grid ds-grid--2">
+        <div class="font-card">
+          <p class="glyphs" style="font-family:var(--font-display)">Aa Kk</p>
+          <p class="fname">Syne</p>
+          <p class="frole">Display — headings, eyebrows, prices, buttons.</p>
+          <div class="weights">
+            <span style="font-family:var(--font-display);font-weight:600">600 · Semibold</span>
+            <span style="font-family:var(--font-display);font-weight:700">700 · Bold</span>
+            <span style="font-family:var(--font-display);font-weight:800">800 · Extrabold — big statements</span>
+          </div>
+        </div>
+        <div class="font-card">
+          <p class="glyphs" style="font-family:var(--font-body)">Aa Kk</p>
+          <p class="fname" style="font-family:var(--font-body)">DM Sans</p>
+          <p class="frole">Body — paragraphs, labels, UI text.</p>
+          <div class="weights">
+            <span style="font-family:var(--font-body);font-weight:300">300 · Light <span style="color:var(--koom-muted)">(“Digital”)</span></span>
+            <span style="font-family:var(--font-body);font-weight:400">400 · Regular</span>
+            <span style="font-family:var(--font-body);font-weight:500">500 · Medium</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Type scale</h3>
+      <div class="ds-panel">
+        <div class="type-row">
+          <div class="meta"><strong>H1</strong>clamp 2.2&ndash;3.6rem<br>Syne 700 · -0.03em</div>
+          <div class="type-sample"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-0.03em;line-height:1.1;display:block">Ton business, visible</span></div>
+        </div>
+        <div class="type-row">
+          <div class="meta"><strong>H2</strong>clamp 1.8&ndash;2.6rem<br>Syne 700 · -0.025em</div>
+          <div class="type-sample"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-0.025em;line-height:1.15;display:block">Des portails à la hauteur</span></div>
+        </div>
+        <div class="type-row">
+          <div class="meta"><strong>H3</strong>clamp 1.25&ndash;1.6rem<br>Syne 600 · -0.018em</div>
+          <div class="type-sample"><span style="font-family:var(--font-display);font-weight:600;font-size:clamp(1.25rem,2.4vw,1.6rem);letter-spacing:-0.018em;display:block">Présence locale réelle</span></div>
+        </div>
+        <div class="type-row">
+          <div class="meta"><strong>Eyebrow</strong>0.8rem · Syne 600<br>0.14em · uppercase · ochre</div>
+          <div class="type-sample"><span class="eyebrow">Pourquoi Koom Digital</span></div>
+        </div>
+        <div class="type-row">
+          <div class="meta"><strong>Lede</strong>1.08rem · DM Sans<br>line-height 1.65</div>
+          <div class="type-sample"><span class="lede" style="display:block;color:var(--koom-muted)">Présence locale, standards internationaux — la crédibilité que vos bailleurs attendent.</span></div>
+        </div>
+        <div class="type-row">
+          <div class="meta"><strong>Body</strong>1rem · DM Sans 400<br>line-height 1.65</div>
+          <div class="type-sample"><span style="display:block;color:var(--koom-muted)">Sites légers, offline-first, rapides même en 3G. On sait comment l'internet fonctionne ici, et on conçoit en conséquence.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 04 MOTIFS ===== -->
+    <section class="ds-section" id="motifs">
+      <p class="ds-sec-num">04 — Cultural motifs</p>
+      <h2>The thread of Burkina Faso, woven through.</h2>
+      <p class="ds-lead">In v2 the West African references step forward. They are structural, not ornamental: a bolder bògòlanfini lattice, a warm woven seam stitching every section, a mudcloth dentil band, and the banco frieze on dark edges. Now carrying ochre, they read unmistakably as Burkinabè.</p>
+
+      <h3 class="ds-subhead">The weave seam · Faso Dan Fani, now with earth</h3>
+      <p class="ds-note" style="margin-bottom:0.9rem">The signature element. A multi-stripe woven band echoing locally-spun Faso Dan Fani cotton — a Burkinabè symbol of self-reliance — now threading <strong>ochre and sand through the blues</strong>. It divides every section of this document edge to edge.</p>
+      <div class="ds-panel">
+        <div class="weave-seam" style="margin-bottom:1.4rem"></div>
+        <div class="weave-seam" style="margin-bottom:1.4rem"></div>
+        <div class="weave-seam"></div>
+      </div>
+
+      <div class="ds-grid ds-grid--4" style="margin-top:var(--space-lg)">
+        <div>
+          <div class="motif-tile motif-lattice-dark"><span class="label">Bogolan · dark</span></div>
+          <p class="ds-note" style="margin-top:0.6rem"><strong style="color:var(--koom-navy)">Bògòlanfini lattice.</strong> Interlocking diamonds in ochre over color fields — Malian–Burkinabè mud-cloth.</p>
+        </div>
+        <div>
+          <div class="motif-tile motif-lattice-light"><span class="label">Bogolan · light</span></div>
+          <p class="ds-note" style="margin-top:0.6rem">The same lattice in blue on washed surfaces and heroes.</p>
+        </div>
+        <div>
+          <div class="motif-tile motif-mud"><span class="label">Mudcloth band</span></div>
+          <p class="ds-note" style="margin-top:0.6rem"><strong style="color:var(--koom-navy)">Dentil mudcloth.</strong> A zig-zag earth band for footers, card edges and the cover base.</p>
+        </div>
+        <div>
+          <div class="motif-tile motif-frieze"><span class="label">Banco frieze</span></div>
+          <p class="ds-note" style="margin-top:0.6rem"><strong style="color:var(--koom-navy)">Sahel frieze.</strong> Triangular dentils echoing banco-mosque parapets (Bobo-Dioulasso, Djenné).</p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Mudcloth accent band</h3>
+      <div class="mud-band"></div>
+      <p class="ds-note" style="margin-top:0.7rem"><span class="mono">--mudcloth</span> — a repeating SVG dentil in <span class="mono">--koom-ochre</span> on navy. Use as a base rule on dark sections, business cards and the footer.</p>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 05 LAYOUT ===== -->
+    <section class="ds-section" id="layout">
+      <p class="ds-sec-num">05 — Spacing &amp; layout</p>
+      <h2>One rhythm, top to bottom.</h2>
+      <p class="ds-lead">A six-step spacing scale, three corner radii and two soft, navy-tinted shadows keep every surface consistent. Content lives in a <span class="mono">1200px</span> container with fluid <span class="mono">1.5rem</span> gutters.</p>
+
+      <h3 class="ds-subhead">Spacing scale</h3>
+      <div class="ds-panel">
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th style="width:55%">Visual</th></tr></thead>
+          <tbody>
+            <tr><td><code>--space-xs</code></td><td>0.5rem</td><td><div class="space-bar" style="width:8px"></div></td></tr>
+            <tr><td><code>--space-sm</code></td><td>1rem</td><td><div class="space-bar" style="width:16px"></div></td></tr>
+            <tr><td><code>--space-md</code></td><td>1.5rem</td><td><div class="space-bar" style="width:24px"></div></td></tr>
+            <tr><td><code>--space-lg</code></td><td>2.5rem</td><td><div class="space-bar" style="width:40px"></div></td></tr>
+            <tr><td><code>--space-xl</code></td><td>4rem</td><td><div class="space-bar" style="width:64px"></div></td></tr>
+            <tr><td><code>--space-2xl</code></td><td>6rem</td><td><div class="space-bar" style="width:96px"></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-grid ds-grid--2">
+        <div>
+          <h3 class="ds-subhead">Radii</h3>
+          <div class="ds-grid ds-grid--3">
+            <div><div class="radius-demo" style="border-radius:8px"></div><p class="ds-note" style="text-align:center;margin-top:0.4rem"><code>sm</code> · 8px</p></div>
+            <div><div class="radius-demo" style="border-radius:16px"></div><p class="ds-note" style="text-align:center;margin-top:0.4rem"><code>md</code> · 16px</p></div>
+            <div><div class="radius-demo" style="border-radius:24px"></div><p class="ds-note" style="text-align:center;margin-top:0.4rem"><code>lg</code> · 24px</p></div>
+          </div>
+          <p class="ds-note" style="margin-top:0.7rem">Pills &amp; buttons use <span class="mono">999px</span>.</p>
+        </div>
+        <div>
+          <h3 class="ds-subhead">Elevation</h3>
+          <div class="ds-grid ds-grid--2">
+            <div><div class="shadow-demo" style="box-shadow:var(--shadow-card)"></div><p class="ds-note" style="text-align:center;margin-top:0.4rem"><code>--shadow-card</code></p></div>
+            <div><div class="shadow-demo" style="box-shadow:var(--shadow-soft)"></div><p class="ds-note" style="text-align:center;margin-top:0.4rem"><code>--shadow-soft</code></p></div>
+          </div>
+          <p class="ds-note" style="margin-top:0.7rem">Both tinted with navy, never neutral grey. Motion: <span class="mono">0.35s cubic-bezier(.22,1,.36,1)</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 06 ICONS ===== -->
+    <section class="ds-section" id="icons">
+      <p class="ds-sec-num">06 — Iconography</p>
+      <h2>Line icons in a faceted well.</h2>
+      <p class="ds-lead">Icons are simple <span class="mono">1.8px</span> line drawings on a 24-unit grid, set inside a faceted octagonal “well” — a cut-corner shape carrying the bogolan diamond geometry down to component scale.</p>
+
+      <div class="icon-grid">
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg></div><span class="lbl">Location</span></div>
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.8 6 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-6-3.8-9S9.5 5.7 12 3Z" stroke="currentColor" stroke-width="1.8"/></svg></div><span class="lbl">Languages</span></div>
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 18h.01M8 18v-3M13 18v-6M18 18V8M21 5l-9 9-4-4-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="lbl">Performance</span></div>
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3M9.5 6h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><span class="lbl">Mobile Money</span></div>
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 7.2 6 11.4A6 6 0 0 1 6 14.4C6 10.2 12 3 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><span class="lbl">Drupal drop</span></div>
+        <div class="icon-cell"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="lbl">Same timezone</span></div>
+      </div>
+      <p class="ds-note" style="margin-top:1rem">The well is built with <span class="mono">clip-path: polygon(...)</span> plus an inset diamond outline — <span class="mono">.card-icon</span> in the production CSS.</p>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 07 COMPONENTS ===== -->
+    <section class="ds-section" id="components">
+      <p class="ds-sec-num">07 — Components</p>
+      <h2>The building blocks.</h2>
+      <p class="ds-lead">Every component renders from the production stylesheet, now warmed with the v2 earth accents. What you see is close to what ships.</p>
+
+      <h3 class="ds-subhead">Buttons</h3>
+      <div class="ds-panel">
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+          <button class="btn btn-primary" type="button">Devis gratuit →</button>
+          <button class="btn btn-earth" type="button">Parler sur WhatsApp</button>
+          <button class="btn btn-outline-dark" type="button">Découvrir le pack</button>
+          <a class="btn-ghost" href="#components">Voir nos solutions</a>
+        </div>
+      </div>
+      <div class="ds-panel ds-panel--dark">
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+          <button class="btn btn-light" type="button">Voir les packs →</button>
+          <button class="btn btn-earth" type="button">Devis gratuit →</button>
+          <button class="btn btn-outline" type="button">En savoir plus</button>
+        </div>
+      </div>
+      <p class="ds-note" style="margin-bottom:var(--space-lg)">Pills, Syne 600, lift <span class="mono">-2px</span> on hover. <span class="mono">btn-primary</span> (blue) leads; <span class="mono">btn-earth</span> (ochre) is the new warm call-to-action — use it for the single most important action on a screen.</p>
+
+      <h3 class="ds-subhead">Tags</h3>
+      <div class="ds-panel">
+        <ul class="tag-list" style="margin:0">
+          <li class="tag" style="border-color:var(--koom-pale);color:var(--koom-deep);background:var(--koom-white)">Drupal</li>
+          <li class="tag tag--earth">Mooré</li>
+          <li class="tag tag--earth">Fulfuldé</li>
+          <li class="tag" style="border-color:var(--koom-pale);color:var(--koom-deep);background:var(--koom-white)">WCAG 2.1</li>
+          <li class="tag" style="border-color:var(--koom-pale);color:var(--koom-deep);background:var(--koom-white)">Mobile Money</li>
+        </ul>
+      </div>
+      <p class="ds-note" style="margin-bottom:var(--space-lg)"><span class="mono">tag--earth</span> highlights the local languages — a small, meaningful place to let the earth tone speak.</p>
+
+      <h3 class="ds-subhead">Feature card</h3>
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <h3>Présence locale réelle</h3>
+          <p>Réunions en personne à Ouagadougou. On connaît le terrain et les langues.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 7.2 6 11.4A6 6 0 0 1 6 14.4C6 10.2 12 3 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <h3>Spécialistes Drupal</h3>
+          <p>Le CMS de l'UNICEF et de 100+ gouvernements. Pour les projets qui durent.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3M9.5 6h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3>Mobile Money intégré</h3>
+          <p>Orange Money, Moov Money. Vos clients paient comme ils ont l'habitude.</p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Pricing packs</h3>
+      <div class="grid grid--3">
+        <article class="pack-card">
+          <p class="pack-name">Pack Start</p>
+          <p class="pack-price">120 000 – 180 000 <small>FCFA</small></p>
+          <p>Idéal pour démarrer votre présence en ligne rapidement.</p>
+          <ul class="pack-list">
+            <li>Landing page, 1 à 3 pages</li>
+            <li>WhatsApp intégré</li>
+            <li>Hébergement 1ʳᵉ année inclus</li>
+          </ul>
+          <a class="btn btn-outline-dark" href="#components">Découvrir</a>
+        </article>
+        <article class="pack-card pack-card--featured is-earth">
+          <p class="pack-name">Pack Business</p>
+          <p class="pack-price">350 000 – 550 000 <small>FCFA</small></p>
+          <p>Le choix le plus populaire — un site corporatif complet.</p>
+          <ul class="pack-list">
+            <li>Site corporatif, 5 à 10 pages</li>
+            <li>CMS Drupal ou WordPress</li>
+            <li>SEO de base &amp; mobile</li>
+          </ul>
+          <a class="btn btn-earth" href="#components">Découvrir</a>
+        </article>
+        <article class="pack-card">
+          <p class="pack-name">Pack Pro</p>
+          <p class="pack-price">750 000 – 1 200 000 <small>FCFA</small></p>
+          <p>Une solution avancée et sur mesure, pensée pour la croissance.</p>
+          <ul class="pack-list">
+            <li>Site semi sur-mesure</li>
+            <li>Multilingue</li>
+            <li>Intégrations &amp; APIs</li>
+          </ul>
+          <a class="btn btn-outline-dark" href="#components">Découvrir</a>
+        </article>
+      </div>
+      <p class="ds-note" style="margin:0.4rem 0 var(--space-lg)">The featured pack now wears the ochre tab and an earth CTA — the warm tone does the job of drawing the eye that a second blue never could.</p>
+
+      <h3 class="ds-subhead">Institutional card &amp; testimonial</h3>
+      <div class="grid grid--2">
+        <article class="inst-card">
+          <p class="pack-name">Portail Institutionnel</p>
+          <p class="pack-price">1 500 000 – 3 500 000 <small>FCFA</small></p>
+          <p>Pour les appels d'offres formels et les plateformes multi-rôles.</p>
+          <ul class="pack-list">
+            <li>Drupal multi-rôle</li>
+            <li>Sécurité avancée</li>
+            <li>Mooré / Fulfuldé · hébergement dédié</li>
+          </ul>
+          <a class="btn btn-light" href="#components">En savoir plus</a>
+        </article>
+        <article class="testimonial">
+          <blockquote>« Le portail multilingue en mooré et en fulfuldé a changé la donne — nos bénéficiaires se sentent enfin représentés. »</blockquote>
+          <div class="testimonial-author">
+            <span class="author-avatar" aria-hidden="true">FZ</span>
+            <div>
+              <p class="author-name">Fatou Zongo</p>
+              <p class="author-role">ONG Eau Pour Tous</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="ds-subhead">Form fields</h3>
+      <div class="ds-panel ds-panel--ochre">
+        <form class="form-grid" onsubmit="return false">
+          <div class="form-row">
+            <div class="field">
+              <label for="ds-name">Nom complet</label>
+              <input type="text" id="ds-name" placeholder="Aminata Compaoré">
+            </div>
+            <div class="field">
+              <label for="ds-type">Vous êtes…</label>
+              <select id="ds-type"><option>Entreprise</option><option>ONG</option><option>Institution</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ds-msg">Votre projet en quelques mots</label>
+            <textarea id="ds-msg" rows="3" placeholder="Décrivez votre besoin…"></textarea>
+          </div>
+          <button class="btn btn-earth" type="button" style="justify-self:start">Envoyer ma demande →</button>
+        </form>
+      </div>
+      <p class="ds-note">Focus shows a <span class="mono">--koom-mid</span> ring with a 4px halo — meeting WCAG 2.1 AA on every control.</p>
+
+      <h3 class="ds-subhead">Dark stat band</h3>
+      <div class="ds-panel ds-panel--dark" style="text-align:center">
+        <span class="eyebrow" style="color:var(--koom-sand)">Le CMS de référence mondiale</span>
+        <p style="font-family:var(--font-display);font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:600;color:#fff;line-height:1.35;max-width:640px;margin:0.6rem auto 1.2rem">Le même CMS que l'UNICEF, la Commission Européenne et 100+ gouvernements — développé localement à Ouagadougou.</p>
+        <div class="stat-logos" style="position:static">
+          <span>UNICEF</span><span>Commission Européenne</span><span>100+ gouvernements</span><span>Drupal certifié</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ds-seam"></div>
+
+    <!-- ===== 08 APPLICATIONS ===== -->
+    <section class="ds-section" id="applications">
+      <p class="ds-sec-num">08 — In use</p>
+      <h2>The system, applied.</h2>
+      <p class="ds-lead">A few touchpoints showing tokens, motifs and components working together — water and earth, the agency's promise made visible.</p>
+
+      <h3 class="ds-subhead">Business card</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-lg)">
+        <div class="bizcard bizcard--front">
+          <div class="weave-seam"></div>
+          <div style="display:flex;align-items:center;gap:0.6rem">
+            <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true"><use href="#koom-drop"></use></svg>
+            <span class="brand-word" style="font-family:var(--font-display);font-size:1.2rem"><strong>Koom</strong> <span style="font-weight:300;color:var(--koom-light)">Digital</span></span>
+          </div>
+          <div>
+            <p style="font-family:var(--font-display);font-weight:600;margin:0;font-size:0.86rem;letter-spacing:0.04em;color:var(--koom-sand)">Digital roots, global reach.</p>
+            <p style="color:var(--koom-pale);margin:0.2rem 0 0;font-size:0.78rem">Ouagadougou · Burkina Faso</p>
+          </div>
+        </div>
+        <div class="bizcard bizcard--back" style="border-top:0">
+          <div class="mud-band" style="position:absolute;inset-inline:0;top:0;border-radius:0;height:14px"></div>
+          <div style="margin-top:0.4rem">
+            <p class="nm" style="color:var(--koom-navy)">Issaka Ouédraogo</p>
+            <p class="rl" style="color:var(--koom-ochre-deep)">Fondateur · Lead Drupal</p>
+          </div>
+          <div class="ln">
+            <p style="margin:0">bonjour@koom.digital</p>
+            <p style="margin:0.1rem 0 0"><span>WhatsApp</span> +226 00 00 00 00</p>
+            <p style="margin:0.1rem 0 0"><span>web</span> koom.digital</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Site header in context</h3>
+      <div class="browser-mock">
+        <div class="browser-bar">
+          <i></i><i></i><i></i>
+          <span class="url">koom.digital</span>
+        </div>
+        <header class="site-header" style="position:static">
+          <nav class="nav" aria-label="aperçu">
+            <a class="brand" href="#applications" style="pointer-events:none">
+              <svg class="brand-mark" width="38" height="38"><use href="#koom-drop"></use></svg>
+              <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
+            </a>
+            <div class="nav-links" style="position:static;flex-direction:row;background:none;border:none;box-shadow:none;transform:none;opacity:1;visibility:visible;padding:0">
+              <a href="#applications" aria-current="page">Accueil</a>
+              <a href="#applications">Entreprises</a>
+              <a href="#applications">ONGs &amp; Institutions</a>
+              <a class="btn btn-earth" href="#applications">Devis gratuit</a>
+            </div>
+            <div class="nav-actions">
+              <div class="lang-toggle" role="group" aria-label="langue">
+                <a href="#applications" aria-current="true">FR</a>
+                <a href="#applications" aria-current="false">EN</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <div class="page-hero" style="padding-block:var(--space-xl)">
+          <div class="container">
+            <p class="breadcrumb"><a href="#applications">Accueil</a> › Entreprises</p>
+            <h1 style="margin-bottom:0.4rem">Ton business, visible en ligne</h1>
+            <p>Sites web, boutiques et Mobile Money pour les entreprises de Ouagadougou.</p>
+            <ul class="tag-list">
+              <li class="tag">WhatsApp intégré</li>
+              <li class="tag">Dès 120 000 FCFA</li>
+              <li class="tag">Livraison 3 jours</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-panel ds-panel--dark" style="margin-top:var(--space-xl);text-align:center;position:relative;overflow:hidden">
+        <div class="ds-weave-mini" style="max-width:220px;margin:0 auto var(--space-md)"></div>
+        <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" style="margin-bottom:0.4rem"><use href="#koom-drop"></use></svg>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:#fff;margin:0">Digital roots, global reach.</p>
+        <p style="color:var(--koom-sand);margin:0.4rem 0 0">Koom Digital · Web &amp; Drupal · Ouagadougou, Burkina Faso · bonjour@koom.digital</p>
+        <div class="mud-band" style="position:absolute;inset-inline:0;bottom:0;border-radius:0;height:16px"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Scrollspy: highlight the active section in the sidebar
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.ds-nav a'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var sections = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (l) { l.classList.remove('is-active'); });
+            var active = map[e.target.id];
+            if (active) active.classList.add('is-active');
+          }
+        });
+      }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+      sections.forEach(function (s) { obs.observe(s); });
+    }
+  })();
+</script>
+</body>
+</html>

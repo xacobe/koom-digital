@@ -1,0 +1,444 @@
+/* ==========================================================================
+   Koom Digital — Design System documentation chrome
+   Layout + specimen styling for the design-system reference document.
+   Built on top of koom.css (the real production tokens & components).
+   ========================================================================== */
+
+:root {
+  --ds-sidebar-w: 268px;
+  --koom-ochre:      #C6792F;  /* proposed extension — terre de Banfora */
+  --koom-ochre-deep: #9E5A22;
+  --koom-ochre-wash: #F6EADB;
+}
+
+html { scroll-padding-top: 32px; }
+
+body.ds {
+  background: var(--koom-white);
+  color: var(--koom-text);
+}
+
+/* --------------------------------------------------------------------------
+   Shell: fixed sidebar + scrolling content
+   -------------------------------------------------------------------------- */
+.ds-shell {
+  display: grid;
+  grid-template-columns: var(--ds-sidebar-w) 1fr;
+  align-items: start;
+}
+
+.ds-side {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--koom-navy);
+  background-image: var(--pattern-lattice-on-dark);
+  background-size: 64px 64px;
+  color: var(--koom-pale);
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  border-right: 1px solid rgba(181, 212, 244, 0.14);
+}
+
+.ds-side .brand {
+  color: var(--koom-white);
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.ds-side .brand-word span { color: var(--koom-light); }
+
+.ds-side-kicker {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--koom-light);
+  margin: 0 0 var(--space-lg) 48px;
+}
+
+.ds-weave-mini {
+  height: 5px;
+  background-image: var(--weave-band);
+  background-size: 140px 100%;
+  border-radius: 3px;
+  margin-bottom: var(--space-lg);
+}
+
+.ds-nav { display: flex; flex-direction: column; gap: 0.1rem; }
+
+.ds-nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius-sm);
+  color: var(--koom-pale);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.ds-nav a:hover { background: rgba(133, 183, 235, 0.1); color: var(--koom-white); }
+.ds-nav a.is-active { background: var(--koom-blue); color: var(--koom-white); }
+
+.ds-nav a .num {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--koom-light);
+  min-width: 1.4em;
+}
+.ds-nav a.is-active .num { color: var(--koom-pale); }
+
+.ds-side-foot {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(181, 212, 244, 0.18);
+  font-size: 0.78rem;
+  color: var(--koom-light);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Content column
+   -------------------------------------------------------------------------- */
+.ds-main { min-width: 0; }
+
+.ds-section {
+  padding: var(--space-2xl) clamp(var(--space-lg), 6vw, 5.5rem);
+  max-width: 1180px;
+  border-bottom: 1px solid var(--koom-border);
+}
+
+.ds-section:last-child { border-bottom: none; }
+
+.ds-sec-num {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--koom-blue);
+}
+
+.ds-section > h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.ds-lead {
+  font-size: 1.1rem;
+  max-width: 680px;
+  color: var(--koom-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.ds-subhead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--koom-navy);
+  letter-spacing: -0.01em;
+  margin: var(--space-xl) 0 var(--space-md);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--koom-border);
+}
+
+.ds-note {
+  font-size: 0.9rem;
+  color: var(--koom-muted);
+  max-width: 640px;
+}
+
+/* Generic spec panel that frames a live specimen */
+.ds-panel {
+  border: 1px solid var(--koom-border);
+  border-radius: var(--radius-md);
+  background: var(--koom-white);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.ds-panel--wash {
+  background: var(--koom-wash);
+  background-image: var(--pattern-lattice-on-light);
+  background-size: 64px 64px;
+}
+
+.ds-panel--dark {
+  background: var(--koom-navy);
+  background-image: var(--pattern-lattice-on-dark);
+  background-size: 64px 64px;
+  color: var(--koom-wash);
+  border-color: transparent;
+}
+
+.ds-grid { display: grid; gap: var(--space-md); }
+.ds-grid--2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.ds-grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.ds-grid--4 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+
+/* --------------------------------------------------------------------------
+   Color swatches
+   -------------------------------------------------------------------------- */
+.swatch {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--koom-border);
+  background: var(--koom-white);
+}
+
+.swatch-chip {
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.7rem 0.8rem;
+}
+
+.swatch-chip .var {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+
+.swatch-chip.on-light .var { background: rgba(13, 27, 42, 0.08); color: var(--koom-navy); }
+
+.swatch-meta { padding: 0.7rem 0.85rem 0.9rem; }
+.swatch-meta .name { font-weight: 600; font-size: 0.92rem; color: var(--koom-navy); }
+.swatch-meta .hex {
+  font-family: 'DM Sans', monospace;
+  font-size: 0.82rem;
+  color: var(--koom-muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.swatch-meta .role { font-size: 0.78rem; color: var(--koom-muted); margin-top: 0.35rem; line-height: 1.5; }
+
+/* Water ramp */
+.ramp { display: flex; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--koom-border); }
+.ramp > div {
+  flex: 1;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.7rem;
+  font-family: 'DM Sans', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   Type specimen
+   -------------------------------------------------------------------------- */
+.type-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: var(--space-lg);
+  align-items: baseline;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--koom-border);
+}
+.type-row:last-child { border-bottom: none; }
+
+.type-row .meta {
+  font-family: 'DM Sans', monospace;
+  font-size: 0.78rem;
+  color: var(--koom-muted);
+  line-height: 1.6;
+}
+.type-row .meta strong { display: block; color: var(--koom-navy); font-family: var(--font-display); font-size: 0.9rem; }
+
+.type-sample { color: var(--koom-navy); }
+
+.font-card {
+  border: 1px solid var(--koom-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+.font-card .glyphs { font-size: 3.4rem; line-height: 1.1; color: var(--koom-navy); margin-bottom: var(--space-sm); }
+.font-card .fname { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--koom-navy); }
+.font-card .frole { font-size: 0.86rem; color: var(--koom-muted); }
+.font-card .weights { margin-top: var(--space-md); display: flex; flex-direction: column; gap: 0.3rem; }
+
+/* --------------------------------------------------------------------------
+   Spec tables / token lists
+   -------------------------------------------------------------------------- */
+.ds-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.ds-table th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--koom-muted);
+  padding: 0 0.8rem 0.7rem;
+  border-bottom: 1px solid var(--koom-border);
+}
+.ds-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--koom-border); vertical-align: middle; }
+.ds-table tr:last-child td { border-bottom: none; }
+.ds-table code, .mono {
+  font-family: 'DM Sans', ui-monospace, monospace;
+  font-size: 0.82rem;
+  background: var(--koom-wash);
+  color: var(--koom-deep);
+  padding: 0.12rem 0.45rem;
+  border-radius: 5px;
+}
+
+/* spacing visual bars */
+.space-bar { height: 14px; background: var(--koom-mid); border-radius: 3px; }
+.radius-demo { background: var(--koom-wash); border: 1.5px solid var(--koom-blue); height: 70px; }
+.shadow-demo { background: var(--koom-white); border-radius: var(--radius-md); height: 70px; }
+
+/* --------------------------------------------------------------------------
+   Motif specimens
+   -------------------------------------------------------------------------- */
+.motif-tile {
+  height: 150px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--koom-border);
+  position: relative;
+  overflow: hidden;
+}
+.motif-tile .label {
+  position: absolute;
+  left: 0.9rem; bottom: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(245, 249, 255, 0.92);
+  color: var(--koom-navy);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+.motif-lattice-dark { background: var(--koom-navy); background-image: var(--pattern-lattice-on-dark); background-size: 64px 64px; }
+.motif-lattice-light { background: var(--koom-wash); background-image: var(--pattern-lattice-on-light); background-size: 64px 64px; }
+.motif-frieze { background: var(--koom-navy); }
+.motif-frieze::after {
+  content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 15px;
+  background-image: var(--pattern-frieze-on-dark); background-repeat: repeat-x; background-size: 44px 15px;
+}
+.motif-weave { background: var(--koom-white); display: grid; place-items: center; gap: 10px; padding: 1rem; }
+.motif-weave .weave-seam { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   Logo construction / clear-space
+   -------------------------------------------------------------------------- */
+.logo-stage {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--koom-border);
+}
+.logo-stage--light { background: var(--koom-wash); }
+.logo-stage--dark { background: var(--koom-navy); background-image: var(--pattern-lattice-on-dark); background-size: 64px 64px; }
+.logo-stage .brand { font-size: 1.7rem; }
+.logo-stage--dark .brand { color: #fff; }
+.logo-stage--dark .brand-word span { color: var(--koom-light); }
+.logo-stage .brand-mark { width: 54px; height: 54px; }
+
+.clearspace { position: relative; }
+.clearspace .ring {
+  position: absolute; inset: -26px;
+  border: 1px dashed var(--koom-light);
+  border-radius: 10px;
+}
+
+.dodont { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.dd {
+  border: 1px solid var(--koom-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.dd .dd-stage { height: 120px; display: grid; place-items: center; background: var(--koom-wash); }
+.dd .dd-tag {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 0.6rem 0.85rem; font-size: 0.85rem; font-weight: 600;
+}
+.dd .dd-tag::before { content: ''; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+.dd--do .dd-tag { color: #1f7a4d; } .dd--do .dd-tag::before { background: #1f9e57; }
+.dd--no .dd-tag { color: #a83232; } .dd--no .dd-tag::before { background: #c13c3c; }
+
+/* --------------------------------------------------------------------------
+   Icon grid
+   -------------------------------------------------------------------------- */
+.icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-md); }
+.icon-cell {
+  border: 1px solid var(--koom-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem; text-align: center;
+}
+.icon-cell .lbl { font-size: 0.78rem; color: var(--koom-muted); }
+
+/* --------------------------------------------------------------------------
+   Application mockups
+   -------------------------------------------------------------------------- */
+.bizcard {
+  width: 360px; height: 210px; border-radius: 14px; overflow: hidden;
+  box-shadow: var(--shadow-soft); position: relative;
+}
+.bizcard--front {
+  background: linear-gradient(160deg, var(--koom-navy), var(--koom-deep));
+  background-image: linear-gradient(160deg, var(--koom-navy), var(--koom-deep)), var(--pattern-lattice-on-dark);
+  background-size: auto, 64px 64px;
+  color: var(--koom-wash);
+  padding: 1.5rem 1.6rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.bizcard--front .weave-seam { position: absolute; inset-inline: 0; top: 0; }
+.bizcard--back {
+  background: var(--koom-white);
+  padding: 1.6rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border: 1px solid var(--koom-border);
+}
+.bizcard .nm { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.bizcard .rl { font-size: 0.8rem; opacity: 0.85; }
+.bizcard .ln { font-size: 0.78rem; line-height: 1.7; }
+.bizcard .ln span { color: var(--koom-muted); }
+
+.browser-mock {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--koom-border);
+  box-shadow: var(--shadow-card);
+}
+.browser-bar {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: var(--koom-wash); padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--koom-border);
+}
+.browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--koom-border); }
+.browser-bar .url {
+  margin-left: 0.6rem; font-size: 0.78rem; color: var(--koom-muted);
+  background: var(--koom-white); padding: 0.25rem 0.8rem; border-radius: 999px; border: 1px solid var(--koom-border);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 940px) {
+  .ds-shell { grid-template-columns: 1fr; }
+  .ds-side {
+    position: static; height: auto; overflow: visible;
+    border-right: none; border-bottom: 1px solid rgba(181,212,244,0.14);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem var(--space-lg);
+    padding-block: var(--space-md);
+  }
+  .ds-side .brand { margin: 0; }
+  .ds-side .brand-word { white-space: nowrap; }
+  .ds-side-kicker { margin: 0; align-self: center; }
+  .ds-weave-mini { display: none; }
+  .ds-nav { flex-flow: row wrap; flex: 1 1 100%; gap: 0.2rem; }
+  .ds-nav a { font-size: 0.84rem; }
+  .ds-side-foot { display: none; }
+  .ds-section { padding-inline: var(--space-md); }
+  .type-row { grid-template-columns: 1fr; gap: 0.4rem; }
+}
