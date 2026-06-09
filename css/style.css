@@ -306,6 +306,21 @@ select:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+/* Grille pack 2 colonnes (texte + liste de features) — collapse à 1 col mobile */
+.grid--pack {
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .grid--pack {
+    grid-template-columns: 1fr;
+  }
+  /* Remet l'ordre DOM naturel sur mobile — le texte passe toujours avant la liste */
+  .grid--pack > * { order: initial !important; }
+}
+
 /* --------------------------------------------------------------------------
    Buttons
    -------------------------------------------------------------------------- */
@@ -519,7 +534,7 @@ select:focus-visible {
   border: 1px solid var(--koom-border);
   background: var(--koom-white);
   border-radius: var(--radius-sm);
-  padding: 0.5rem 0.65rem;
+  padding: var(--space-sm);
   cursor: pointer;
 }
 
