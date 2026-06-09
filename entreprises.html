@@ -35,7 +35,7 @@
     .site-header{position:sticky;top:0;z-index:100;background:rgba(245,249,255,.85);border-bottom:1px solid var(--koom-border)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.85rem;max-width:1200px;margin-inline:auto;padding-inline:1.5rem}
     .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.25rem;color:var(--koom-navy)}
-    .page-hero{background:linear-gradient(160deg,var(--koom-navy),var(--koom-deep));color:var(--koom-wash);padding-block:4rem}
+    .cover{background-color:var(--koom-navy);color:var(--koom-wash);padding-block:6rem}
   </style>
 
   <link rel="preload" href="css/style.css" as="style">
@@ -49,12 +49,7 @@
   <header class="site-header">
     <nav class="nav" aria-label="Navigation principale">
       <a class="brand" href="index.html">
-        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <rect width="64" height="64" rx="14" fill="#042C53"/>
-          <path d="M32 8 L56 32 L32 56 L8 32 Z M32 17 L47 32 L32 47 L17 32 Z" fill="none" stroke="#B5D4F4" stroke-width="1" opacity="0.16"/>
-          <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#185FA5"/>
-          <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
-        </svg>
+        <img class="brand-mark" src="assets/koom-logo-drop.svg" alt="" aria-hidden="true" width="38" height="38">
         <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
       </a>
 
@@ -69,7 +64,7 @@
         <a href="index.html#projets">Projets</a>
         <a href="index.html#histoire">À propos</a>
         <a href="contact.html">Contact</a>
-        <a class="btn btn-primary" href="contact.html">Devis gratuit</a>
+        <a class="btn btn-earth" href="contact.html">Devis gratuit</a>
       </div>
 
       <div class="nav-actions">
@@ -84,11 +79,12 @@
   <main id="main">
 
     <!-- ============================== PAGE HERO ============================== -->
-    <section class="page-hero">
+    <section class="cover">
       <div class="container" data-reveal>
         <p class="breadcrumb"><a href="index.html">Accueil</a> <span aria-hidden="true">/</span> <span>Entreprises</span></p>
-        <span class="hero-tag-label" style="color:var(--koom-light)">Pour les entreprises</span>
+        <span class="eyebrow">Pour les entreprises</span>
         <h1>Ton business, visible en ligne</h1>
+        <div class="accent-rule" aria-hidden="true"></div>
         <p>Sites web, boutiques et Mobile Money pour les entreprises de Ouagadougou. Livraison en 3 jours, prix visibles dès le départ, support en français.</p>
         <ul class="tag-list">
           <li class="tag">WhatsApp intégré</li>
@@ -285,7 +281,7 @@
       <div class="container">
         <div class="cta-final" data-reveal style="grid-template-columns: 1fr; text-align:center; max-width: 760px; margin-inline:auto">
           <div>
-            <span class="eyebrow" style="color:var(--koom-light)">Prêt à lancer votre projet ?</span>
+            <span class="eyebrow">Prêt à lancer votre projet ?</span>
             <h2 id="cta-titre">Discutons de votre business</h2>
             <p>Dites-nous où vous en êtes — nous vous proposons le pack le plus adapté, avec un prix clair dès le premier échange.</p>
             <p style="margin-top:var(--space-md)">
@@ -304,12 +300,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html">
-            <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-              <rect width="64" height="64" rx="14" fill="#0C447C"/>
-            <path d="M32 8 L56 32 L32 56 L8 32 Z M32 17 L47 32 L32 47 L17 32 Z" fill="none" stroke="#B5D4F4" stroke-width="1" opacity="0.16"/>
-              <path d="M32 12C32 12 19 29 19 39.5C19 47.5 24.8 53 32 53C39.2 53 45 47.5 45 39.5C45 29 32 12 32 12Z" fill="#378ADD"/>
-              <path d="M32 22C32 22 24 33.5 24 40.5C24 45.5 27.6 49 32 49" fill="none" stroke="#B5D4F4" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
-            </svg>
+            <img class="brand-mark" src="assets/koom-logo-drop.svg" alt="" aria-hidden="true" width="38" height="38">
             <span class="brand-word"><strong>Koom</strong> <span>Digital</span></span>
           </a>
           <p>Digital roots, global reach. L'agence web de référence à Ouagadougou — présence locale, standards internationaux.</p>

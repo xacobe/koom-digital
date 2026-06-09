@@ -57,22 +57,34 @@
      et de Djenné) en bordure des bandeaux sombres et de l'en-tête de page
    -------------------------------------------------------------------------- */
 :root {
-  --pattern-lattice-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L60 32 L32 60 L4 32 Z M32 18 L46 32 L32 46 L18 32 Z' fill='none' stroke='white' stroke-opacity='.06' stroke-width='1'/%3E%3C/svg%3E");
-  --pattern-lattice-on-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L60 32 L32 60 L4 32 Z M32 18 L46 32 L32 46 L18 32 Z' fill='none' stroke='%23185FA5' stroke-opacity='.07' stroke-width='1'/%3E%3C/svg%3E");
+  /* Earth / laterite — la terre du Burkina Faso */
+  --koom-ochre:      #C2772E;
+  --koom-ochre-deep: #8F501C;
+  --koom-clay:       #A6452A;
+  --koom-sand:       #E9CBA1;
+  --koom-ochre-wash: #F7EFE2;
+
+  /* Bògòlanfini lattice — ochre on dark, blue on light (bolder than v1) */
+  --pattern-lattice-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23C2772E' stroke-opacity='.17' stroke-width='1.3'/%3E%3C/svg%3E");
+  --pattern-lattice-on-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 3 L57 30 L30 57 L3 30 Z M30 16 L44 30 L30 44 L16 30 Z' fill='none' stroke='%23185FA5' stroke-opacity='.1' stroke-width='1.3'/%3E%3C/svg%3E");
 
   --pattern-frieze-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='15' viewBox='0 0 44 15'%3E%3Cpath d='M0 15 L11 1.5 L22 15 L33 1.5 L44 15 Z' fill='white' fill-opacity='.07'/%3E%3C/svg%3E");
   --pattern-frieze-on-wash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='15' viewBox='0 0 44 15'%3E%3Cpath d='M0 15 L11 1.5 L22 15 L33 1.5 L44 15 Z' fill='%230C447C' fill-opacity='.05'/%3E%3C/svg%3E");
 
+  /* Mudcloth dentil band — zigzag en terre ocre pour footer / hero bases */
+  --mudcloth: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='22'%3E%3Cpath d='M0 22 L12 4 L24 22 Z M24 22 L36 4 L48 22 Z' fill='%23C2772E'/%3E%3Cpath d='M12 4 L24 22 L36 4' fill='none' stroke='%23E9CBA1' stroke-width='1' opacity='.5'/%3E%3C/svg%3E");
+
+  /* Faso Dan Fani — trame eau + terre (bleu-sable-ocre) */
   --weave-band: repeating-linear-gradient(
     90deg,
-    var(--koom-mid) 0 4px,
-    var(--koom-light) 4px 7px,
-    var(--koom-pale) 7px 9px,
-    var(--koom-blue) 9px 15px,
-    var(--koom-deep) 15px 19px,
-    var(--koom-mid) 19px 26px,
-    var(--koom-light) 26px 28px,
-    var(--koom-blue) 28px 34px
+    #185FA5 0 5px,
+    #378ADD 5px 8px,
+    #E9CBA1 8px 10px,
+    #C2772E 10px 16px,
+    #042C53 16px 20px,
+    #378ADD 20px 27px,
+    #8F501C 27px 29px,
+    #185FA5 29px 35px
   );
 }
 
@@ -81,7 +93,24 @@
 .weave-seam {
   height: 6px;
   background-image: var(--weave-band);
-  background-size: 220px 100%;
+  background-size: 200px 100%;
+}
+
+/* Bande mudcloth — dentils ocre en zigzag (footer, hero base, card edge) */
+.mud-band {
+  height: 26px;
+  background-color: var(--koom-navy);
+  background-image: var(--mudcloth);
+  background-repeat: repeat-x;
+  background-size: 48px 26px;
+  border-radius: 4px;
+}
+
+/* Séparateur tissé pleine largeur entre grandes sections */
+.section-seam {
+  height: 8px;
+  background-image: var(--weave-band);
+  background-size: 200px 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -248,12 +277,16 @@ select:focus-visible {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--koom-blue);
+  color: var(--koom-ochre-deep);
   margin-bottom: var(--space-xs);
 }
 
-.section--dark .eyebrow {
-  color: var(--koom-light);
+.section--dark .eyebrow,
+.hero .eyebrow,
+.stat-band .eyebrow,
+.cta-final .eyebrow,
+.cover .eyebrow {
+  color: var(--koom-sand);
 }
 
 .grid {
@@ -358,6 +391,14 @@ select:focus-visible {
   transform: none;
   color: var(--koom-mid);
 }
+
+/* Earth CTA — pour l'action la plus importante de chaque écran */
+.btn-earth {
+  background: var(--koom-ochre);
+  color: #fff;
+  box-shadow: var(--shadow-card);
+}
+.btn-earth:hover { background: var(--koom-ochre-deep); }
 
 /* --------------------------------------------------------------------------
    Navigation
@@ -676,6 +717,13 @@ select:focus-visible {
   border: 1px solid;
 }
 
+/* Tag langues locales (Mooré, Fulfuldé) */
+.tag--earth {
+  border-color: #E6C79B;
+  color: var(--koom-ochre-deep);
+  background: var(--koom-ochre-wash);
+}
+
 .hero-entreprises .tag {
   border-color: rgba(181, 212, 244, 0.35);
   color: var(--koom-light);
@@ -805,7 +853,7 @@ select:focus-visible {
 }
 
 .pack-card--featured {
-  border-color: var(--koom-blue);
+  border-color: var(--koom-ochre);
   box-shadow: var(--shadow-soft);
 }
 
@@ -814,7 +862,7 @@ select:focus-visible {
   position: absolute;
   top: -14px;
   left: var(--space-lg);
-  background: var(--koom-blue);
+  background: var(--koom-ochre);
   color: var(--koom-white);
   font-family: var(--font-display);
   font-size: 0.74rem;
@@ -906,6 +954,10 @@ select:focus-visible {
 
 .inst-card .pack-price small {
   color: var(--koom-pale);
+}
+
+.inst-card h3 {
+  color: var(--koom-white);
 }
 
 .inst-card p {
@@ -1391,6 +1443,137 @@ select:focus-visible {
   background-image: var(--pattern-frieze-on-wash);
 }
 
+/* --------------------------------------------------------------------------
+   Cover — hero statement rich : fond navy, doubles dégradés radiaux
+   (bleu + ocre), bande tissée en haut, dentils mudcloth en bas.
+   Utilisé pour les pages intérieures à entrée sombre (Entreprises).
+   -------------------------------------------------------------------------- */
+.cover {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--koom-navy);
+  background-image:
+    radial-gradient(120% 90% at 80% -10%, rgba(56,138,221,0.35), transparent 55%),
+    radial-gradient(90% 80% at 0% 110%, rgba(194,119,46,0.28), transparent 55%),
+    var(--pattern-lattice-on-dark);
+  background-size: auto, auto, 60px 60px;
+  color: var(--koom-wash);
+  padding-block: var(--space-2xl);
+}
+
+/* Bande tissée Faso Dan Fani en haut */
+.cover::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 8px;
+  background-image: var(--weave-band);
+  background-size: 200px 100%;
+}
+
+/* Dentils mudcloth en bas */
+.cover::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 22px;
+  background-image: var(--mudcloth);
+  background-repeat: repeat-x;
+  background-size: 48px 22px;
+}
+
+/* Grand logo + wordmark dans le cover */
+.cover-mark {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  margin-bottom: clamp(1.8rem, 4vw, 3rem);
+}
+
+.cover-mark img {
+  width: clamp(72px, 9vw, 104px);
+  height: clamp(72px, 9vw, 104px);
+}
+
+.cover-mark .wm {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1;
+}
+
+.cover-mark .wm strong { font-weight: 700; color: #fff; }
+.cover-mark .wm span { font-weight: 300; color: var(--koom-light); }
+
+/* Texte dans le cover */
+.cover h1 {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  color: #fff;
+  max-width: 16ch;
+  margin: 0.4rem 0 0;
+}
+
+.cover p {
+  color: var(--koom-pale);
+  max-width: 620px;
+}
+
+.cover .tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  color: var(--koom-sand);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* Métadonnées (langues, type…) */
+.cover .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(233,203,161,0.22);
+  font-size: 0.86rem;
+  color: var(--koom-pale);
+}
+
+.cover .meta b { color: #fff; font-weight: 600; }
+
+.cover .meta .langs {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.cover .meta .langs span {
+  border: 1px solid rgba(233,203,161,0.4);
+  color: var(--koom-sand);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+/* Tags et fil d'Ariane dans le cover (mêmes règles que .page-hero) */
+.cover .tag-list { margin-top: var(--space-md); }
+.cover .tag {
+  border-color: rgba(181, 212, 244, 0.35);
+  color: var(--koom-light);
+  background: rgba(133, 183, 235, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Accent-rule — barre décorative ochre, 64px × 5px, utilisée sous les titres
+   -------------------------------------------------------------------------- */
+.accent-rule {
+  width: 64px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--koom-ochre);
+  margin: var(--space-md) 0;
+}
+
 .page-hero p {
   color: var(--koom-pale);
   max-width: 620px;
@@ -1461,7 +1644,7 @@ select:focus-visible {
   font-family: var(--font-display);
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--koom-mid);
+  color: var(--koom-ochre);
   display: block;
   margin-bottom: var(--space-xs);
 }
